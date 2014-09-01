@@ -14,7 +14,6 @@
 		254EC03419B526470026CA47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC03319B526470026CA47 /* main.m */; };
 		254EC03819B526470026CA47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC03719B526470026CA47 /* AppDelegate.m */; };
 		254EC03B19B526470026CA47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254EC03919B526470026CA47 /* Main.storyboard */; };
-		254EC03E19B526470026CA47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC03D19B526470026CA47 /* ViewController.m */; };
 		254EC04019B526470026CA47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 254EC03F19B526470026CA47 /* Images.xcassets */; };
 		254EC04719B526470026CA47 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC04619B526470026CA47 /* XCTest.framework */; };
 		254EC04819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
@@ -45,8 +44,6 @@
 		254EC03619B526470026CA47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		254EC03719B526470026CA47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		254EC03A19B526470026CA47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		254EC03C19B526470026CA47 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		254EC03D19B526470026CA47 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		254EC03F19B526470026CA47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		254EC04519B526470026CA47 /* StreamingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC04619B526470026CA47 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -115,8 +112,6 @@
 				254EC03619B526470026CA47 /* AppDelegate.h */,
 				254EC03719B526470026CA47 /* AppDelegate.m */,
 				254EC03919B526470026CA47 /* Main.storyboard */,
-				254EC03C19B526470026CA47 /* ViewController.h */,
-				254EC03D19B526470026CA47 /* ViewController.m */,
 				254EC03F19B526470026CA47 /* Images.xcassets */,
 				254EC02E19B526470026CA47 /* Supporting Files */,
 			);
@@ -249,7 +244,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				254EC03E19B526470026CA47 /* ViewController.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
 			);
@@ -456,6 +450,7 @@
 				254EC05819B526470026CA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		254EC05919B526470026CA47 /* Build configuration list for PBXNativeTarget "StreamingAppTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +459,7 @@
 				254EC05B19B526470026CA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
