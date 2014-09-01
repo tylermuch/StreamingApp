@@ -20,6 +20,8 @@
 		254EC04919B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
 		254EC05119B526470026CA47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 254EC04F19B526470026CA47 /* InfoPlist.strings */; };
 		254EC05319B526470026CA47 /* StreamingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC05219B526470026CA47 /* StreamingAppTests.m */; };
+		25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */; };
+		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,10 @@
 		254EC04E19B526470026CA47 /* StreamingAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StreamingAppTests-Info.plist"; sourceTree = "<group>"; };
 		254EC05019B526470026CA47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		254EC05219B526470026CA47 /* StreamingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingAppTests.m; sourceTree = "<group>"; };
+		25D506AF19B52FED00DDD550 /* NetworkPopulatedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPopulatedTableViewController.h; sourceTree = "<group>"; };
+		25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPopulatedTableViewController.m; sourceTree = "<group>"; };
+		25D506B319B532BA00DDD550 /* JFUrlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUrlUtil.h; sourceTree = "<group>"; };
+		25D506B419B532BA00DDD550 /* JFUrlUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUrlUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		254EC01B19B526470026CA47 = {
 			isa = PBXGroup;
 			children = (
+				25D506B219B52FF600DDD550 /* ViewControllers */,
 				254EC02D19B526470026CA47 /* StreamingApp */,
 				254EC04C19B526470026CA47 /* StreamingAppTests */,
 				254EC02619B526470026CA47 /* Frameworks */,
@@ -121,6 +128,8 @@
 		254EC02E19B526470026CA47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25D506B319B532BA00DDD550 /* JFUrlUtil.h */,
+				25D506B419B532BA00DDD550 /* JFUrlUtil.m */,
 				254EC02F19B526470026CA47 /* StreamingApp-Info.plist */,
 				254EC03019B526470026CA47 /* InfoPlist.strings */,
 				254EC03319B526470026CA47 /* main.m */,
@@ -145,6 +154,15 @@
 				254EC04F19B526470026CA47 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25D506B219B52FF600DDD550 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				25D506AF19B52FED00DDD550 /* NetworkPopulatedTableViewController.h */,
+				25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
+				25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
