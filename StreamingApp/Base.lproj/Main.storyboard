@@ -8,7 +8,7 @@
         <scene sceneID="s0l-H5-zYj">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="yQr-Ow-3Sy" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="4GD-SY-Qgu">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-409" y="893"/>
         </scene>
-        <!--Table View Controller - Artists-->
+        <!--Artist Table View Controller - Artists-->
         <scene sceneID="ZPS-Ie-TsL">
             <objects>
-                <tableViewController id="CEr-gO-Fpj" sceneMemberID="viewController">
+                <tableViewController id="CEr-gO-Fpj" customClass="ArtistTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y4p-yV-BST">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

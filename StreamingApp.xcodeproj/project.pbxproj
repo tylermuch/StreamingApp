@@ -22,6 +22,7 @@
 		254EC05319B526470026CA47 /* StreamingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC05219B526470026CA47 /* StreamingAppTests.m */; };
 		25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */; };
 		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
+		25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPopulatedTableViewController.m; sourceTree = "<group>"; };
 		25D506B319B532BA00DDD550 /* JFUrlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUrlUtil.h; sourceTree = "<group>"; };
 		25D506B419B532BA00DDD550 /* JFUrlUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUrlUtil.m; sourceTree = "<group>"; };
+		25D506B619B53C9C00DDD550 /* ArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
+		25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 			children = (
 				25D506AF19B52FED00DDD550 /* NetworkPopulatedTableViewController.h */,
 				25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */,
+				25D506B619B53C9C00DDD550 /* ArtistTableViewController.h */,
+				25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
 				25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */,
+				25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
