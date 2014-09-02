@@ -1,24 +1,24 @@
 //
-//  ArtistTableViewController.m
+//  AlbumTableViewController.m
 //  StreamingApp
 //
 //  Created by Tyler Much on 9/1/14.
 //  Copyright (c) 2014 Tyler Much. All rights reserved.
 //
 
-#import "ArtistTableViewController.h"
+#import "AlbumTableViewController.h"
 
-
-@interface ArtistTableViewController ()
+@interface AlbumTableViewController ()
 
 @end
 
-@implementation ArtistTableViewController
-
-- (void)viewDidLoad
+@implementation AlbumTableViewController
 {
-    [super viewDidLoad];
-    [self populateArtistTableFromNetwork];
+    NSString *givenArtist;
+}
+
+- (void)refreshTable {
+    [self populateAlbumTableFromNetworkForArtist:givenArtist];
 }
 
 #pragma mark - Table view data source
@@ -47,17 +47,14 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([sender isKindOfClass:[UITableViewCell class]]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        if (indexPath) {
-            if ([segue.identifier isEqualToString:@"Show Album"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setArtist:)]) {
-                    NSString *artist = self.tableItems[indexPath.row];
-                    [segue.destinationViewController performSelector:@selector(setArtist:) withObject:artist];
-                }
-            }
-        }
-    }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
+- (void)setArtist:(NSString *)artist {
+    givenArtist = artist;
+    self.title = artist;
+    [self refreshTable];
 }
 @end
