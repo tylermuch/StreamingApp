@@ -23,7 +23,18 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
 }
 
 - (void)viewDidLoad {
+    UIRefreshControl *rc = [[UIRefreshControl alloc] init];
+    rc.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    [rc addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = rc;
+    
     [self refreshTable];
+}
+
+- (void)stopRefresh {
+    if ([self.refreshControl isRefreshing]) {
+        [self.refreshControl endRefreshing];
+    }
 }
 
 - (void)populateArtistTableFromNetwork {
@@ -72,6 +83,9 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.tableItems = [jsonArray mutableCopy];
                 [self.tableView reloadData];
+                if ([self respondsToSelector:@selector(stopRefresh)]) {
+                    [self performSelector:@selector(stopRefresh) withObject:nil];
+                }
             });
         }
     });
