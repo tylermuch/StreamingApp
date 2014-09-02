@@ -81,11 +81,14 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
         NSError *error = nil;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+        });
+        
         if (error != nil) {
             NSLog(@"Error parsing JSON.");
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[UIApplication sharedApplication] hideNetworkActivityIndicator];
                 self.tableItems = [jsonArray mutableCopy];
                 [self.tableView reloadData];
                 if ([self respondsToSelector:@selector(stopRefresh)]) {
