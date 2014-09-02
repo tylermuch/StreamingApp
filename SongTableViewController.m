@@ -23,30 +23,6 @@
     [self populateSongsTableFromNetworkForAlbum:givenAlbum fromArtist:givenArtist];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.tableItems count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    static NSString *simpleTableIdentifier = @"CellyCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    cell.textLabel.text = [self.tableItems objectAtIndex:indexPath.row];
-    return cell;
-}
-
 - (void)setAlbumAndArtistFromDictionary:(NSDictionary *)dict {
     givenArtist = [dict objectForKey:@"artist"];
     givenAlbum = [dict objectForKey:@"album"];

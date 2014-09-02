@@ -12,10 +12,19 @@
 NSString * const baseURL = @"http://www.tylermuch.com:5000/";
 
 @interface NetworkPopulatedTableViewController ()
-
+- (void)refreshTable;
 @end
 
 @implementation NetworkPopulatedTableViewController
+
+// To be overriden by subclasses. There is almost certainly a better way to do this but I'm not exactly sure how in Objective-C. This works for now.
+- (void)refreshTable {
+    [NSException raise:@"Invoked abstract method. refresh must be implemented in subclasses" format:@"Invoked abstract method. refresh must be implemented in subclasses"];
+}
+
+- (void)viewDidLoad {
+    [self refreshTable];
+}
 
 - (void)populateArtistTableFromNetwork {
     [self populateSongsTableFromNetworkForAlbum:nil fromArtist:nil];
@@ -67,6 +76,30 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
         }
     });
     
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.tableItems count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    static NSString *simpleTableIdentifier = @"CellyCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [self.tableItems objectAtIndex:indexPath.row];
+    return cell;
 }
 
 @end
