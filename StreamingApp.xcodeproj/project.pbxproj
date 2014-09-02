@@ -24,6 +24,7 @@
 		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
 		25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */; };
 		25D506C119B541C100DDD550 /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506C019B541C100DDD550 /* AlbumTableViewController.m */; };
+		25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506C319B544E600DDD550 /* SongTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 		25D506BF19B541C100DDD550 /* AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewController.h; sourceTree = "<group>"; };
 		25D506C019B541C100DDD550 /* AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewController.m; sourceTree = "<group>"; };
+		25D506C219B544E600DDD550 /* SongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTableViewController.h; sourceTree = "<group>"; };
+		25D506C319B544E600DDD550 /* SongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */,
 				25D506BF19B541C100DDD550 /* AlbumTableViewController.h */,
 				25D506C019B541C100DDD550 /* AlbumTableViewController.m */,
+				25D506C219B544E600DDD550 /* SongTableViewController.h */,
+				25D506C319B544E600DDD550 /* SongTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */,
 				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
