@@ -8,6 +8,7 @@
 
 #import "NetworkPopulatedTableViewController.h"
 #import "JFUrlUtil.h"
+#import "UIApplication+NetworkIndicator.h"
 
 NSString * const baseURL = @"http://www.tylermuch.com:5000/";
 
@@ -71,6 +72,9 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
     
     NSURL *url = [NSURL URLWithString:encodedURL];
     
+    //Need to set network indicator in the main thread before dispatching to fetch queue
+    [[UIApplication sharedApplication] showNetworkActivityIndicator];
+    
     dispatch_queue_t jsonFetchQueue = dispatch_queue_create("json fetcher", NULL);
     dispatch_async(jsonFetchQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -81,6 +85,7 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
             NSLog(@"Error parsing JSON.");
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] hideNetworkActivityIndicator];
                 self.tableItems = [jsonArray mutableCopy];
                 [self.tableView reloadData];
                 if ([self respondsToSelector:@selector(stopRefresh)]) {
