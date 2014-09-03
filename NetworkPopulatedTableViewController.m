@@ -78,12 +78,13 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
     dispatch_queue_t jsonFetchQueue = dispatch_queue_create("json fetcher", NULL);
     dispatch_async(jsonFetchQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
-        NSError *error = nil;
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[UIApplication sharedApplication] hideNetworkActivityIndicator];
         });
+        
+        NSError *error = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if (error != nil) {
             NSLog(@"Error parsing JSON.");
