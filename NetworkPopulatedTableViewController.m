@@ -7,10 +7,8 @@
 //
 
 #import "NetworkPopulatedTableViewController.h"
-#import "JFUrlUtil.h"
 #import "UIApplication+NetworkIndicator.h"
-
-NSString * const baseURL = @"http://www.tylermuch.com:5000/";
+#import "StreamingAppUtil.h"
 
 @interface NetworkPopulatedTableViewController ()
 - (void)refreshTable;
@@ -50,27 +48,11 @@ NSString * const baseURL = @"http://www.tylermuch.com:5000/";
 }
 
 - (void)populateSongsTableFromNetworkForAlbum:(NSString *)album fromArtist:(NSString *)artist {
-    NSMutableString *urlString = [baseURL mutableCopy];
-    [urlString appendString:@"list"];
+    NSURL *url = [StreamingAppUtil urlForArtist:artist album:album];
     
-    if (album != nil && artist == nil) {
-        return; //we can't handle this. An artist must be specified with the album.
+    if (url == nil) {
+        return;
     }
-    
-    if (artist != nil) {
-        [urlString appendString:@"/"];
-        [urlString appendString:artist];
-    }
-    
-    if (album != nil) {
-        [urlString appendString:@"/"];
-        [urlString appendString:album];
-    }
-    
-    NSLog(@"Request URL: %@", urlString);
-    NSString *encodedURL = [JFUrlUtil encodeUrl:urlString];
-    
-    NSURL *url = [NSURL URLWithString:encodedURL];
     
     //Need to set network indicator in the main thread before dispatching to fetch queue
     [[UIApplication sharedApplication] showNetworkActivityIndicator];

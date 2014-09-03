@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502726A19B6D484009FF980 /* StreamingAppUtil.m */; };
 		25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2502726919B6D484009FF980 /* StreamingAppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingAppUtil.h; sourceTree = "<group>"; };
+		2502726A19B6D484009FF980 /* StreamingAppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingAppUtil.m; sourceTree = "<group>"; };
 		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
 		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +145,8 @@
 		254EC02E19B526470026CA47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2502726919B6D484009FF980 /* StreamingAppUtil.h */,
+				2502726A19B6D484009FF980 /* StreamingAppUtil.m */,
 				25D506B319B532BA00DDD550 /* JFUrlUtil.h */,
 				25D506B419B532BA00DDD550 /* JFUrlUtil.m */,
 				254EC02F19B526470026CA47 /* StreamingApp-Info.plist */,
@@ -283,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */,
+				2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */,
 				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
