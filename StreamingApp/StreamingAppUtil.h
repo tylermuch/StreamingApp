@@ -11,5 +11,6 @@
 @interface StreamingAppUtil : NSObject
 
 + (NSURL *)urlForArtist:(NSString *)artist album:(NSString *)album;
++ (NSURL *)musicUrlForArtist:(NSString *)artist album:(NSString *)album song:(NSString *)song;
 
 @end

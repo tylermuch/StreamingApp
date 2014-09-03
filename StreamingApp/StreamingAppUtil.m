@@ -9,13 +9,13 @@
 #import "StreamingAppUtil.h"
 #import "JFUrlUtil.h"
 
-static NSString * const baseURL = @"http://www.tylermuch.com:5000/";
+static NSString * const baseURL = @"http://www.tylermuch.com";
 
 @implementation StreamingAppUtil
 
 + (NSURL *)urlForArtist:(NSString *)artist album:(NSString *)album {
     NSMutableString *urlString = [baseURL mutableCopy];
-    [urlString appendString:@"list"];
+    [urlString appendString:@":5000/list"];
     
     // We cannot handle this case. An artist must be specified with the album.
     if ( (artist == nil) && (album != nil)) {
@@ -34,6 +34,15 @@ static NSString * const baseURL = @"http://www.tylermuch.com:5000/";
     
     NSString *encodedURL = [JFUrlUtil encodeUrl:urlString];
     return [NSURL URLWithString:encodedURL];
+}
+
++ (NSURL *)musicUrlForArtist:(NSString *)artist album:(NSString *)album song:(NSString *)song{
+    if (artist == nil || album == nil || song == nil) {
+        return nil;
+    }
+    
+    NSString *urlString = [NSString stringWithFormat:@"music/%@/%@/%@", artist, album, song];
+    return [NSURL URLWithString:[JFUrlUtil encodeUrl:urlString] relativeToURL:[NSURL URLWithString:baseURL]];
 }
 
 @end
