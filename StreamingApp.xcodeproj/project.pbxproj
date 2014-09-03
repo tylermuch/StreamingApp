@@ -237,6 +237,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Tyler Much";
 				TargetAttributes = {
+					254EC02319B526470026CA47 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					254EC04419B526470026CA47 = {
 						TestTargetID = 254EC02319B526470026CA47;
 					};
