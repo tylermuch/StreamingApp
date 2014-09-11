@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502726A19B6D484009FF980 /* StreamingAppUtil.m */; };
 		25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */; };
+		25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25181A2319C17E3C003639E5 /* AVFoundation.framework */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
 		254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 		2502726A19B6D484009FF980 /* StreamingAppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingAppUtil.m; sourceTree = "<group>"; };
 		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
 		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
+		25181A2319C17E3C003639E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC02719B526470026CA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		254EC02919B526470026CA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */,
 				254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */,
 				254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */,
 				254EC02819B526470026CA47 /* Foundation.framework in Frameworks */,
@@ -122,6 +125,7 @@
 		254EC02619B526470026CA47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25181A2319C17E3C003639E5 /* AVFoundation.framework */,
 				254EC02719B526470026CA47 /* Foundation.framework */,
 				254EC02919B526470026CA47 /* CoreGraphics.framework */,
 				254EC02B19B526470026CA47 /* UIKit.framework */,
