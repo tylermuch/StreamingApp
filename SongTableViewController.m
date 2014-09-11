@@ -47,6 +47,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Selected: %@", [tableView cellForRowAtIndexPath:indexPath].textLabel.text);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
