@@ -14,6 +14,7 @@
 		25181A2B19C1802F003639E5 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2A19C1802F003639E5 /* Track.m */; };
 		25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2D19C1803A003639E5 /* TrackPlayer.m */; };
 		25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3019C1804A003639E5 /* TrackPlaylist.m */; };
+		25181A3419C18E92003639E5 /* AudioManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3319C18E92003639E5 /* AudioManagerTests.m */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
 		254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		25181A2D19C1803A003639E5 /* TrackPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPlayer.m; sourceTree = "<group>"; };
 		25181A2F19C1804A003639E5 /* TrackPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPlaylist.h; sourceTree = "<group>"; };
 		25181A3019C1804A003639E5 /* TrackPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPlaylist.m; sourceTree = "<group>"; };
+		25181A3219C18E92003639E5 /* AudioManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManagerTests.h; sourceTree = "<group>"; };
+		25181A3319C18E92003639E5 /* AudioManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManagerTests.m; sourceTree = "<group>"; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC02719B526470026CA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		254EC02919B526470026CA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -192,6 +195,8 @@
 		254EC04C19B526470026CA47 /* StreamingAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				25181A3219C18E92003639E5 /* AudioManagerTests.h */,
+				25181A3319C18E92003639E5 /* AudioManagerTests.m */,
 				254EC05219B526470026CA47 /* StreamingAppTests.m */,
 				254EC04D19B526470026CA47 /* Supporting Files */,
 			);
@@ -346,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25181A3419C18E92003639E5 /* AudioManagerTests.m in Sources */,
 				254EC05319B526470026CA47 /* StreamingAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

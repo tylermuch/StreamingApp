@@ -10,4 +10,22 @@
 
 @implementation AudioManager
 
++ (id)sharedInstance {
+    static dispatch_once_t predicate = 0;
+    __strong static AudioManager *_shared;
+    dispatch_once(&predicate, ^{
+        _shared = [[self alloc] init];
+    });
+    return _shared;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        self.firstQueue = [[NSMutableArray alloc] init];
+        self.firstQueue = [[NSMutableArray alloc] init];
+        self.firstQueue = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end
