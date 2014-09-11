@@ -10,6 +10,10 @@
 		2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502726A19B6D484009FF980 /* StreamingAppUtil.m */; };
 		25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */; };
 		25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25181A2319C17E3C003639E5 /* AVFoundation.framework */; };
+		25181A2819C18004003639E5 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2719C18004003639E5 /* AudioManager.m */; };
+		25181A2B19C1802F003639E5 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2A19C1802F003639E5 /* Track.m */; };
+		25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2D19C1803A003639E5 /* TrackPlayer.m */; };
+		25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3019C1804A003639E5 /* TrackPlaylist.m */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
 		254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
@@ -43,9 +47,17 @@
 /* Begin PBXFileReference section */
 		2502726919B6D484009FF980 /* StreamingAppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingAppUtil.h; sourceTree = "<group>"; };
 		2502726A19B6D484009FF980 /* StreamingAppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingAppUtil.m; sourceTree = "<group>"; };
-		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
-		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
+		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+NetworkIndicator.h"; path = "../UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
+		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+NetworkIndicator.m"; path = "../UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
 		25181A2319C17E3C003639E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		25181A2619C18004003639E5 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		25181A2719C18004003639E5 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
+		25181A2919C1802F003639E5 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		25181A2A19C1802F003639E5 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		25181A2C19C1803A003639E5 /* TrackPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPlayer.h; sourceTree = "<group>"; };
+		25181A2D19C1803A003639E5 /* TrackPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPlayer.m; sourceTree = "<group>"; };
+		25181A2F19C1804A003639E5 /* TrackPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPlaylist.h; sourceTree = "<group>"; };
+		25181A3019C1804A003639E5 /* TrackPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPlaylist.m; sourceTree = "<group>"; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC02719B526470026CA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		254EC02919B526470026CA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,11 +112,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25181A2519C17FF0003639E5 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				25181A2619C18004003639E5 /* AudioManager.h */,
+				25181A2719C18004003639E5 /* AudioManager.m */,
+				25181A2919C1802F003639E5 /* Track.h */,
+				25181A2A19C1802F003639E5 /* Track.m */,
+				25181A2C19C1803A003639E5 /* TrackPlayer.h */,
+				25181A2D19C1803A003639E5 /* TrackPlayer.m */,
+				25181A2F19C1804A003639E5 /* TrackPlaylist.h */,
+				25181A3019C1804A003639E5 /* TrackPlaylist.m */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		254EC01B19B526470026CA47 = {
 			isa = PBXGroup;
 			children = (
-				25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */,
-				25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */,
+				25181A2519C17FF0003639E5 /* Audio */,
 				25D506B219B52FF600DDD550 /* ViewControllers */,
 				254EC02D19B526470026CA47 /* StreamingApp */,
 				254EC04C19B526470026CA47 /* StreamingAppTests */,
@@ -149,6 +175,8 @@
 		254EC02E19B526470026CA47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */,
+				25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */,
 				2502726919B6D484009FF980 /* StreamingAppUtil.h */,
 				2502726A19B6D484009FF980 /* StreamingAppUtil.m */,
 				25D506B319B532BA00DDD550 /* JFUrlUtil.h */,
@@ -298,14 +326,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */,
 				25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */,
 				2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */,
+				25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */,
 				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
+				25181A2B19C1802F003639E5 /* Track.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
 				25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */,
 				25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */,
 				25D506C119B541C100DDD550 /* AlbumTableViewController.m in Sources */,
+				25181A2819C18004003639E5 /* AudioManager.m in Sources */,
 				25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
