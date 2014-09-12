@@ -22,8 +22,8 @@
 - (id)init {
     if (self = [super init]) {
         self.firstQueue = [[NSMutableArray alloc] init];
-        self.firstQueue = [[NSMutableArray alloc] init];
-        self.firstQueue = [[NSMutableArray alloc] init];
+        self.secondQueue = [[NSMutableArray alloc] init];
+        self.playlists = [[NSMutableArray alloc] init];
     }
     return self;
 }
