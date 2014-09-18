@@ -10,6 +10,7 @@
 #import "Track.h"
 #import "TrackPlayer.h"
 #import "TrackPlaylist.h"
+#import "StreamingAppUtil.h"
 
 @interface TrackPlayer : NSObject
 

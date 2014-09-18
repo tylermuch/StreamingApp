@@ -9,7 +9,8 @@
 #import "StreamingAppUtil.h"
 #import "JFUrlUtil.h"
 
-static NSString * const baseURL = @"http://www.tylermuch.com";
+//static NSString * const baseURL = @"http://www.tylermuch.com";
+static NSString * const baseURL = @"http://localhost";
 
 @implementation StreamingAppUtil
 
@@ -43,6 +44,26 @@ static NSString * const baseURL = @"http://www.tylermuch.com";
     
     NSString *urlString = [NSString stringWithFormat:@"music/%@/%@/%@", artist, album, song];
     return [NSURL URLWithString:[JFUrlUtil encodeUrl:urlString] relativeToURL:[NSURL URLWithString:baseURL]];
+}
+
+// TODO: Fix this to be more flexible.
++ (NSString *)artistFromMusicURL:(NSURL *)url {
+    return [StreamingAppUtil partsOfURL:url][2];
+}
+
++ (NSString *)albumFromMusicURL:(NSURL *)url {
+    return [StreamingAppUtil partsOfURL:url][3];
+}
+
++ (NSString *)songFromMusicURL:(NSURL *)url {
+    return [StreamingAppUtil partsOfURL:url][4];
+}
+
++ (NSArray *)partsOfURL:(NSURL *)url {
+    NSString *s = url.absoluteString;
+    s = [s stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+    s = [s stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [s componentsSeparatedByString:@"/"];
 }
 
 @end
