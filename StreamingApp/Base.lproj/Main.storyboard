@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQr-Ow-3Sy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6246" systemVersion="14A361p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQr-Ow-3Sy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6239"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-409" y="893"/>
         </scene>
-        <!--Artist Table View Controller - Artists-->
+        <!--Artists-->
         <scene sceneID="ZPS-Ie-TsL">
             <objects>
                 <tableViewController id="CEr-gO-Fpj" customClass="ArtistTableViewController" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="1075" y="77"/>
         </scene>
-        <!--Table View Controller - Playlists-->
+        <!--Playlists-->
         <scene sceneID="TOg-cS-ciM">
             <objects>
                 <tableViewController id="Jfl-mE-3T3" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="1075" y="893"/>
         </scene>
-        <!--Table View Controller - Playlist Title-->
+        <!--Playlist Title-->
         <scene sceneID="0ot-lt-dMS">
             <objects>
                 <tableViewController id="Chg-Fr-sXg" sceneMemberID="viewController">
@@ -117,7 +117,7 @@
             </objects>
             <point key="canvasLocation" x="1525" y="893"/>
         </scene>
-        <!--Navigation Controller - Playlists-->
+        <!--Playlists-->
         <scene sceneID="t74-vo-fKP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ls8-hj-txu" sceneMemberID="viewController">
@@ -133,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="541" y="893"/>
         </scene>
-        <!--View Controller - Spotify-->
+        <!--Spotify-->
         <scene sceneID="Eid-vy-6nb">
             <objects>
                 <viewController id="k1N-ex-nfA" sceneMemberID="viewController">
@@ -152,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="541" y="1734"/>
         </scene>
-        <!--Album Table View Controller - Albums-->
+        <!--Albums-->
         <scene sceneID="MJS-yU-QWr">
             <objects>
                 <tableViewController id="xpc-Fc-xTl" customClass="AlbumTableViewController" sceneMemberID="viewController">
@@ -184,7 +184,7 @@
             </objects>
             <point key="canvasLocation" x="1525" y="77"/>
         </scene>
-        <!--Song Table View Controller - Songs-->
+        <!--Songs-->
         <scene sceneID="86q-GU-bvs">
             <objects>
                 <tableViewController id="ab8-OA-ChL" customClass="SongTableViewController" sceneMemberID="viewController">
@@ -213,7 +213,7 @@
             </objects>
             <point key="canvasLocation" x="1966" y="77"/>
         </scene>
-        <!--Navigation Controller - Artists-->
+        <!--Artists-->
         <scene sceneID="Flo-d3-dvK">
             <objects>
                 <navigationController definesPresentationContext="YES" id="L8T-Cc-GH7" sceneMemberID="viewController">

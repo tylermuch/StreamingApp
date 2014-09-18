@@ -20,6 +20,7 @@
         self.track.uri = uri;
         self.track.artist = [StreamingAppUtil artistFromMusicURL:uri];
         self.track.album = [StreamingAppUtil albumFromMusicURL:uri];
+        self.player = [AVPlayer playerWithURL:uri];
         self.initialized = YES;
         return self;
     }
@@ -27,11 +28,25 @@
 }
 
 - (void)play {
+    NSLog(@"Play");
+    if (self.player == nil) {
+        return;
+    }
     
+    if ([self.player isKindOfClass:[AVPlayer class]]) {
+        NSLog(@"AVPlayer");
+        [((AVPlayer *)self.player) play];
+    }
 }
 
 - (void)pause {
+    if (self.player == nil) {
+        return;
+    }
     
+    if ([self.player isKindOfClass:[AVPlayer class]]) {
+        [((AVPlayer *)self.player) pause];
+    }
 }
 
 @end

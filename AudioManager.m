@@ -38,6 +38,23 @@
     [self.firstQueue addObject:uri];
 }
 
+- (void)play {
+    if (self.nowPlaying == nil) {
+        //dequeue a song and play it
+        [self next];
+    } else {
+        [self.nowPlaying play];
+    }
+}
+
+- (void)pause {
+    if (self.nowPlaying == nil) {
+        return;
+    }
+    
+    [self.nowPlaying pause];
+}
+
 - (void)next {
     NSURL *uri;
     if ([self.firstQueue count] > 0) {

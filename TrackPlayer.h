@@ -11,6 +11,7 @@
 #import "TrackPlayer.h"
 #import "TrackPlaylist.h"
 #import "StreamingAppUtil.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface TrackPlayer : NSObject
 
