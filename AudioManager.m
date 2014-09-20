@@ -35,6 +35,11 @@
 
 #pragma mark Playback Control
 
+- (void)playSongWithURI:(NSURL *)uri {
+    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri];
+    [self waitForTrackPlayerInitAndPlay:newPlayer];
+}
+
 - (void)play {
     if (self.nowPlaying == nil) {
         //dequeue a song and play it

@@ -33,6 +33,7 @@
     A convenience method so that ViewControllers don't have to worry about creating a track. This just creates and Track and passes that to addSong:toPlaylist
  */
 - (void)addSongWithURIToQueue:(NSURL *)uri;
+- (void)playSongWithURI:(NSURL *)uri;
 - (void)play;
 - (void)pause;
 - (void)next;
