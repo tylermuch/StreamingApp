@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Track.h"
+#import "StreamingAppUtil.h"
 
 @interface TrackPlaylist : NSObject
 
@@ -17,5 +18,6 @@
 - (id)initWithName:(NSString *)name;
 - (void)addTrack:(Track *)track;
 - (void)addTrackWithURI:(NSURL *)uri;
+- (void)removeTrackAtIndex:(NSUInteger)index;
 
 @end
