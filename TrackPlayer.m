@@ -10,7 +10,7 @@
 
 @implementation TrackPlayer
 
-- (id)initWithURI:(NSURL *)uri {
+- (id)initWithURI:(NSURL *)uri delegate:(id<TrackPlayerDelegate>)delegate{
     if (self = [super init]) {
         self.initialized = NO;
         self.player = nil;
@@ -20,11 +20,22 @@
         self.track.uri = uri;
         self.track.artist = [StreamingAppUtil artistFromMusicURL:uri];
         self.track.album = [StreamingAppUtil albumFromMusicURL:uri];
-        self.player = [AVPlayer playerWithURL:uri];
+        AVPlayerItem* playerItem = [AVPlayerItem playerItemWithURL:uri];
+        
+        // Subscribe to the AVPlayerItem's DidPlayToEndTime notification.
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+        self.player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+        self.delegate = delegate;
         self.initialized = YES;
         return self;
     }
     return nil;
+}
+
+// Called when AVPlayer finishes playing a song
+-(void)itemDidFinishPlaying:(NSNotification *) notification {
+    NSLog(@"Finished playing %@", notification.object);
+    [self.delegate trackDidFinishPlaying];
 }
 
 - (void)play {

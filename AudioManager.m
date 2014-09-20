@@ -36,7 +36,7 @@
 #pragma mark Playback Control
 
 - (void)playSongWithURI:(NSURL *)uri {
-    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri];
+    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
     [self waitForTrackPlayerInitAndPlay:newPlayer];
 }
 
@@ -83,7 +83,7 @@
         [self.previouslyPlayed removeLastObject];
     }
     
-    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri];
+    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
     [self waitForTrackPlayerInitAndPlay:newPlayer];
     
 }
@@ -95,7 +95,7 @@
         [self.previouslyPlayed removeObjectAtIndex:0];
     } else return; // No previously played songs. Do nothing.
     
-    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri];
+    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
     [self waitForTrackPlayerInitAndPlay:newPlayer];
 }
 
@@ -133,6 +133,12 @@
     TrackPlaylist *playlist = [[TrackPlaylist alloc] initWithName:name];
     [playlist addTrackWithURI:uri];
     [self.playlists addObject:playlist];
+}
+
+#pragma mark TrackPlayerDelegate methods
+
+- (void)trackDidFinishPlaying {
+    [self next];
 }
 
 

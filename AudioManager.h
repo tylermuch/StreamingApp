@@ -11,7 +11,7 @@
 #import "TrackPlayer.h"
 #import "TrackPlaylist.h"
 
-@interface AudioManager : NSObject
+@interface AudioManager : NSObject <TrackPlayerDelegate>
 
 @property (nonatomic, strong) TrackPlayer *nowPlaying;
 

@@ -13,13 +13,20 @@
 #import "StreamingAppUtil.h"
 #import <AVFoundation/AVFoundation.h>
 
+@protocol TrackPlayerDelegate <NSObject>
+
+- (void)trackDidFinishPlaying;
+
+@end
+
 @interface TrackPlayer : NSObject
 
 @property (nonatomic, strong) Track *track;
 @property (nonatomic, strong) NSObject *player;
 @property (nonatomic) BOOL initialized;
+@property (nonatomic) id <TrackPlayerDelegate> delegate;
 
-- (id)initWithURI:(NSURL *)uri;
+- (id)initWithURI:(NSURL *)uri delegate:(id <TrackPlayerDelegate>)delegate;
 - (void)play;
 - (void)pause;
 
