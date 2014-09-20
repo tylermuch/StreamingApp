@@ -32,13 +32,12 @@
 /*
     A convenience method so that ViewControllers don't have to worry about creating a track. This just creates and Track and passes that to addSong:toPlaylist
  */
-- (void)addSongWithURI:(NSURL *)uri toPlaylist:(TrackPlaylist *)playlist;
-- (void)addSong:(Track *)song toPlaylist:(TrackPlaylist *)playlist;
 - (void)addSongWithURIToQueue:(NSURL *)uri;
 - (void)play;
 - (void)pause;
 - (void)next;
 - (void)previous;
-- (void)playPlaylist:(TrackPlaylist *)playlist;
+- (void)playPlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled;
+- (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri;
 
 @end

@@ -33,10 +33,7 @@
     return self;
 }
 
-- (void)addSongWithURIToQueue:(NSURL *)uri {
-    // Inserts uri at the end of the array
-    [self.firstQueue addObject:uri];
-}
+#pragma mark Playback Control
 
 - (void)play {
     if (self.nowPlaying == nil) {
@@ -104,6 +101,33 @@
         self.nowPlaying = player;
         [self.nowPlaying play];
     });
+}
+
+#pragma mark Queue Management
+
+- (void)addSongWithURIToQueue:(NSURL *)uri {
+    // Inserts uri at the end of the first queue
+    [self.firstQueue addObject:uri];
+}
+
+// This behavior will probably change
+- (void)playPlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled{
+    if (playlist == nil || [playlist.tracks count] == 0) {
+        return;
+    }
+    
+    //TODO Shuffled is currently ignored. Implement this.
+    
+    for (Track *t in playlist.tracks) {
+        [self.secondQueue addObject:t.uri];
+    }
+    
+}
+
+- (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri {
+    TrackPlaylist *playlist = [[TrackPlaylist alloc] initWithName:name];
+    [playlist addTrackWithURI:uri];
+    [self.playlists addObject:playlist];
 }
 
 
