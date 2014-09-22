@@ -46,6 +46,7 @@
     
     if ([self.player isKindOfClass:[AVPlayer class]]) {
         NSLog(@"AVPlayer");
+        NSLog(@"Playing: %@", [self.track.uri absoluteString]);
         [((AVPlayer *)self.player) play];
     }
 }

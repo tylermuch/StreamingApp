@@ -7,6 +7,7 @@
 //
 
 #import "NetworkPopulatedTableViewController.h"
+#import "AudioManager.h"
 
 @interface SongTableViewController : NetworkPopulatedTableViewController
 
