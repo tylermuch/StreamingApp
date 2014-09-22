@@ -18,11 +18,84 @@
                         <segue destination="L8T-Cc-GH7" kind="relationship" relationship="viewControllers" id="Ce4-R9-4Q1"/>
                         <segue destination="ls8-hj-txu" kind="relationship" relationship="viewControllers" id="SfO-ox-wCs"/>
                         <segue destination="k1N-ex-nfA" kind="relationship" relationship="viewControllers" id="opU-Qa-3rS"/>
+                        <segue destination="VNJ-Db-oue" kind="relationship" relationship="viewControllers" id="30T-TZ-RbL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w99-HA-A5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-409" y="893"/>
+        </scene>
+        <!--Now Playing-->
+        <scene sceneID="gVl-Kb-n7g">
+            <objects>
+                <viewController id="VNJ-Db-oue" customClass="NowPlayingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HFs-ge-8n1"/>
+                        <viewControllerLayoutGuide type="bottom" id="C92-qo-Ojp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Smv-g9-8Ow">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2CN-9F-0YO">
+                                <rect key="frame" x="14" y="448" width="292" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="VNJ-Db-oue" eventType="valueChanged" id="hkx-KB-wfn"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGp-Xa-oMI">
+                                <rect key="frame" x="112" y="359" width="97" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPressed:" destination="VNJ-Db-oue" eventType="touchUpInside" id="jLF-l0-zXR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-r4-twR">
+                                <rect key="frame" x="210" y="359" width="32" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPressed:" destination="VNJ-Db-oue" eventType="touchUpInside" id="wPz-Ab-jIK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68e-Tf-yw3">
+                                <rect key="frame" x="81" y="359" width="31" height="30"/>
+                                <state key="normal" title="Prev">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevPressed:" destination="VNJ-Db-oue" eventType="touchUpInside" id="nPZ-jz-0YI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKr-IG-Mg8">
+                                <rect key="frame" x="16" y="158" width="288" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InE-T5-5He">
+                                <rect key="frame" x="16" y="228" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Now Playing" id="LgW-iY-JYA"/>
+                    <connections>
+                        <outlet property="artistLabel" destination="InE-T5-5He" id="PB7-3v-i1P"/>
+                        <outlet property="playButton" destination="AGp-Xa-oMI" id="LJ3-m0-Ago"/>
+                        <outlet property="songNameLabel" destination="AKr-IG-Mg8" id="5X5-bR-Kwl"/>
+                        <outlet property="timeSlider" destination="2CN-9F-0YO" id="vgB-v1-0Mf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXG-zP-0D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-481" y="1748"/>
         </scene>
         <!--Artists-->
         <scene sceneID="ZPS-Ie-TsL">
@@ -150,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luj-mR-84v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="1734"/>
+            <point key="canvasLocation" x="541" y="1718"/>
         </scene>
         <!--Albums-->
         <scene sceneID="MJS-yU-QWr">

@@ -103,9 +103,18 @@
     dispatch_queue_t waitForInit = dispatch_queue_create("waitforinit", NULL);
     dispatch_async(waitForInit, ^{
         while (!player.initialized);
-        self.nowPlaying = player;
+        [self setNowPlaying:player];
         [self.nowPlaying play];
     });
+}
+
+- (void)setNowPlaying:(TrackPlayer *)nowPlaying {
+    _nowPlaying = nowPlaying;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NowPlayingUpdate" object:nil];
+}
+
+- (BOOL)isPlaying {
+    return [self.nowPlaying isPlaying];
 }
 
 #pragma mark Queue Management

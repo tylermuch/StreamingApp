@@ -29,5 +29,6 @@
 - (id)initWithURI:(NSURL *)uri delegate:(id <TrackPlayerDelegate>)delegate;
 - (void)play;
 - (void)pause;
+- (BOOL)isPlaying;
 
 @end

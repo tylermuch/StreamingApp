@@ -41,5 +41,6 @@
 - (void)queuePlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled;
 - (void)queuePlaylistAtIndexPath:(NSIndexPath *)indexPath shuffled:(BOOL)shuffled;
 - (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri;
+- (BOOL)isPlaying;
 
 @end

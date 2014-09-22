@@ -30,6 +30,7 @@
 		254EC04919B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
 		254EC05119B526470026CA47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 254EC04F19B526470026CA47 /* InfoPlist.strings */; };
 		254EC05319B526470026CA47 /* StreamingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC05219B526470026CA47 /* StreamingAppTests.m */; };
+		259B1C9F19CFE115006FE894 /* NowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */; };
 		25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */; };
 		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
 		25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */; };
@@ -84,6 +85,8 @@
 		254EC04E19B526470026CA47 /* StreamingAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StreamingAppTests-Info.plist"; sourceTree = "<group>"; };
 		254EC05019B526470026CA47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		254EC05219B526470026CA47 /* StreamingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingAppTests.m; sourceTree = "<group>"; };
+		259B1C9D19CFE115006FE894 /* NowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowPlayingViewController.h; sourceTree = "<group>"; };
+		259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowPlayingViewController.m; sourceTree = "<group>"; };
 		25D506AF19B52FED00DDD550 /* NetworkPopulatedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPopulatedTableViewController.h; sourceTree = "<group>"; };
 		25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPopulatedTableViewController.m; sourceTree = "<group>"; };
 		25D506B319B532BA00DDD550 /* JFUrlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUrlUtil.h; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */,
 				25054CF619CDF88D004BE656 /* PlaylistSongTableViewController.h */,
 				25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */,
+				259B1C9D19CFE115006FE894 /* NowPlayingViewController.h */,
+				259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */,
 				25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */,
 				25D506C119B541C100DDD550 /* AlbumTableViewController.m in Sources */,
+				259B1C9F19CFE115006FE894 /* NowPlayingViewController.m in Sources */,
 				25054CF519CDF86D004BE656 /* PlaylistTableViewController.m in Sources */,
 				25181A2819C18004003639E5 /* AudioManager.m in Sources */,
 				25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */,

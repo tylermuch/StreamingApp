@@ -61,4 +61,8 @@
     }
 }
 
+- (BOOL)isPlaying {
+    return [((AVPlayer *)self.player) rate] == 1.0f;
+}
+
 @end
