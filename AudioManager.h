@@ -38,7 +38,8 @@
 - (void)pause;
 - (void)next;
 - (void)previous;
-- (void)playPlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled;
+- (void)queuePlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled;
+- (void)queuePlaylistAtIndexPath:(NSIndexPath *)indexPath shuffled:(BOOL)shuffled;
 - (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri;
 
 @end

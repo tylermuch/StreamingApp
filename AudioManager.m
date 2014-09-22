@@ -116,7 +116,7 @@
 }
 
 // This behavior will probably change
-- (void)playPlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled{
+- (void)queuePlaylist:(TrackPlaylist *)playlist shuffled:(BOOL)shuffled{
     if (playlist == nil || [playlist.tracks count] == 0) {
         return;
     }
@@ -129,9 +129,19 @@
     
 }
 
+- (void)queuePlaylistAtIndexPath:(NSIndexPath *)indexPath shuffled:(BOOL)shuffled {
+    if (indexPath == nil) {
+        return;
+    }
+    
+    [self queuePlaylist:[self.playlists objectAtIndex:indexPath.row] shuffled:shuffled];
+}
+
 - (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri {
     TrackPlaylist *playlist = [[TrackPlaylist alloc] initWithName:name];
-    [playlist addTrackWithURI:uri];
+    if (uri) {
+        [playlist addTrackWithURI:uri];
+    }
     [self.playlists addObject:playlist];
 }
 

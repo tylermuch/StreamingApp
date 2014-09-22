@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502726A19B6D484009FF980 /* StreamingAppUtil.m */; };
 		25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */; };
+		25054CF519CDF86D004BE656 /* PlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */; };
+		25054CF819CDF88D004BE656 /* PlaylistSongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */; };
 		25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25181A2319C17E3C003639E5 /* AVFoundation.framework */; };
 		25181A2819C18004003639E5 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2719C18004003639E5 /* AudioManager.m */; };
 		25181A2B19C1802F003639E5 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2A19C1802F003639E5 /* Track.m */; };
@@ -50,6 +52,10 @@
 		2502726A19B6D484009FF980 /* StreamingAppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingAppUtil.m; sourceTree = "<group>"; };
 		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+NetworkIndicator.h"; path = "../UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
 		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+NetworkIndicator.m"; path = "../UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
+		25054CF319CDF86D004BE656 /* PlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewController.h; sourceTree = "<group>"; };
+		25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewController.m; sourceTree = "<group>"; };
+		25054CF619CDF88D004BE656 /* PlaylistSongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistSongTableViewController.h; sourceTree = "<group>"; };
+		25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistSongTableViewController.m; sourceTree = "<group>"; };
 		25181A2319C17E3C003639E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		25181A2619C18004003639E5 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		25181A2719C18004003639E5 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
@@ -223,6 +229,10 @@
 				25D506C019B541C100DDD550 /* AlbumTableViewController.m */,
 				25D506C219B544E600DDD550 /* SongTableViewController.h */,
 				25D506C319B544E600DDD550 /* SongTableViewController.m */,
+				25054CF319CDF86D004BE656 /* PlaylistTableViewController.h */,
+				25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */,
+				25054CF619CDF88D004BE656 /* PlaylistSongTableViewController.h */,
+				25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +285,7 @@
 				ORGANIZATIONNAME = "Tyler Much";
 				TargetAttributes = {
 					254EC02319B526470026CA47 = {
+						DevelopmentTeam = ULZ4FP8P64;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -338,10 +349,12 @@
 				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
 				25181A2B19C1802F003639E5 /* Track.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
+				25054CF819CDF88D004BE656 /* PlaylistSongTableViewController.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
 				25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */,
 				25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */,
 				25D506C119B541C100DDD550 /* AlbumTableViewController.m in Sources */,
+				25054CF519CDF86D004BE656 /* PlaylistTableViewController.m in Sources */,
 				25181A2819C18004003639E5 /* AudioManager.m in Sources */,
 				25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */,
 			);
@@ -469,11 +482,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StreamingApp/StreamingApp-Prefix.pch";
 				INFOPLIST_FILE = "StreamingApp/StreamingApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -483,11 +500,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StreamingApp/StreamingApp-Prefix.pch";
 				INFOPLIST_FILE = "StreamingApp/StreamingApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
