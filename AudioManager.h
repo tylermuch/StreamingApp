@@ -10,6 +10,7 @@
 #import "Track.h"
 #import "TrackPlayer.h"
 #import "TrackPlaylist.h"
+#import <Spotify/Spotify.h>
 
 @interface AudioManager : NSObject <TrackPlayerDelegate>
 
@@ -42,5 +43,8 @@
 - (void)queuePlaylistAtIndexPath:(NSIndexPath *)indexPath shuffled:(BOOL)shuffled;
 - (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri;
 - (BOOL)isPlaying;
+
+/* Spotify stuff */
+@property (nonatomic, strong) SPTSession *spotifySession;
 
 @end
