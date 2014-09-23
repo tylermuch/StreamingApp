@@ -26,6 +26,7 @@
 		25181A3419C18E92003639E5 /* AudioManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3319C18E92003639E5 /* AudioManagerTests.m */; };
 		254752DA19D25BD100C0F38D /* ParentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752D919D25BD100C0F38D /* ParentTableViewCell.m */; };
 		254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752DC19D25BE900C0F38D /* ParentTableViewController.m */; };
+		2518C5D319D1374600404224 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2518C5D219D1374600404224 /* Spotify.framework */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
 		254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
@@ -91,6 +92,7 @@
 		254752D919D25BD100C0F38D /* ParentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentTableViewCell.m; sourceTree = "<group>"; };
 		254752DB19D25BE900C0F38D /* ParentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentTableViewController.h; sourceTree = "<group>"; };
 		254752DC19D25BE900C0F38D /* ParentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentTableViewController.m; sourceTree = "<group>"; };
+		2518C5D219D1374600404224 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC02719B526470026CA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		254EC02919B526470026CA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +124,7 @@
 				25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */,
 				254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */,
 				254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */,
+				2518C5D319D1374600404224 /* Spotify.framework in Frameworks */,
 				254EC02819B526470026CA47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +213,7 @@
 		254EC02619B526470026CA47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2518C5D219D1374600404224 /* Spotify.framework */,
 				25181A2319C17E3C003639E5 /* AVFoundation.framework */,
 				254EC02719B526470026CA47 /* Foundation.framework */,
 				254EC02919B526470026CA47 /* CoreGraphics.framework */,
@@ -536,10 +540,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StreamingApp/StreamingApp-Prefix.pch";
 				INFOPLIST_FILE = "StreamingApp/StreamingApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -554,10 +563,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StreamingApp/StreamingApp-Prefix.pch";
 				INFOPLIST_FILE = "StreamingApp/StreamingApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
