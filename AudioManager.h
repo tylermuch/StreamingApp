@@ -10,6 +10,7 @@
 #import "Track.h"
 #import "TrackPlayer.h"
 #import "TrackPlaylist.h"
+#import <Spotify/Spotify.h>
 
 @interface AudioManager : NSObject <TrackPlayerDelegate>
 
@@ -44,5 +45,8 @@
 - (void)queueAlbum:(NSString *)album artist:(NSString *)artist;
 - (void)playAlbum:(NSString *)album artist:(NSString *)artist;
 - (BOOL)isPlaying;
+
+/* Spotify stuff */
+@property (nonatomic, strong) SPTSession *spotifySession;
 
 @end

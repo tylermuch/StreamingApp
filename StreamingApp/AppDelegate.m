@@ -8,17 +8,66 @@
 
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AudioManager.h"
+
+static NSString * const kClientId = @"9d29a3c980c4430c89047224e3d6cfa3";
+static NSString * const kCallbackURL = @"streaming-app://callback";
+static NSString * const kTokenSwapServiceURL = @"http://tylermuch.com:5001/swap"; // token exchange service
+static NSString * const kTokenRefreshServiceURL = @"http://tylermuch.com:1234/refresh"; // token refresh service
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (void)openLoginPage {
+    SPTAuth *auth = [SPTAuth defaultInstance];
     
+    NSURL *loginURL;
+    if (kTokenSwapServiceURL == nil || [kTokenSwapServiceURL isEqualToString:@""]) {
+        loginURL = [auth loginURLForClientId:kClientId declaredRedirectURL:[NSURL URLWithString:kCallbackURL] scopes:@[SPTAuthStreamingScope] withResponseType:@"token"];
+    } else {
+        loginURL = [auth loginURLForClientId:kClientId declaredRedirectURL:[NSURL URLWithString:kCallbackURL] scopes:@[SPTAuthStreamingScope]];
+    }
+    
+    double delayInSeconds = 0.1;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] openURL:loginURL];
+    });
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // Enable background audio playback
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     
+    // TODO: Check for existing session in NSUserDefaults
+    [self openLoginPage];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    SPTAuthCallback authCallback = ^(NSError *error, SPTSession *session) {
+        if (error != nil) {
+            NSLog(@"*** Auth error: %@", error);
+            return;
+        }
+        
+        [[AudioManager sharedInstance] setSpotifySession:session];
+    };
+    
+    if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
+        if (kTokenSwapServiceURL == nil || [kTokenSwapServiceURL isEqualToString:@""]) {
+            [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url callback:authCallback];
+        } else {
+            // If we have a token exchange service, we'll call it and get the token.
+            [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url
+                                                tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapServiceURL]
+                                                                     callback:authCallback];
+        }
+        return YES;
+    }
+    return NO;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
