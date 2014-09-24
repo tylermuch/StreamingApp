@@ -17,6 +17,8 @@
 		25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2D19C1803A003639E5 /* TrackPlayer.m */; };
 		25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3019C1804A003639E5 /* TrackPlaylist.m */; };
 		25181A3419C18E92003639E5 /* AudioManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3319C18E92003639E5 /* AudioManagerTests.m */; };
+		254752DA19D25BD100C0F38D /* ParentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752D919D25BD100C0F38D /* ParentTableViewCell.m */; };
+		254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752DC19D25BE900C0F38D /* ParentTableViewController.m */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
 		254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
@@ -68,6 +70,10 @@
 		25181A3019C1804A003639E5 /* TrackPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPlaylist.m; sourceTree = "<group>"; };
 		25181A3219C18E92003639E5 /* AudioManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManagerTests.h; sourceTree = "<group>"; };
 		25181A3319C18E92003639E5 /* AudioManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManagerTests.m; sourceTree = "<group>"; };
+		254752D819D25BD100C0F38D /* ParentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentTableViewCell.h; sourceTree = "<group>"; };
+		254752D919D25BD100C0F38D /* ParentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentTableViewCell.m; sourceTree = "<group>"; };
+		254752DB19D25BE900C0F38D /* ParentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentTableViewController.h; sourceTree = "<group>"; };
+		254752DC19D25BE900C0F38D /* ParentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentTableViewController.m; sourceTree = "<group>"; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC02719B526470026CA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		254EC02919B526470026CA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -238,6 +244,10 @@
 				25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */,
 				259B1C9D19CFE115006FE894 /* NowPlayingViewController.h */,
 				259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */,
+				254752D819D25BD100C0F38D /* ParentTableViewCell.h */,
+				254752D919D25BD100C0F38D /* ParentTableViewCell.m */,
+				254752DB19D25BE900C0F38D /* ParentTableViewController.h */,
+				254752DC19D25BE900C0F38D /* ParentTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -350,6 +360,7 @@
 				25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */,
 				25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */,
 				2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */,
+				254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */,
 				25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */,
 				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
 				25181A2B19C1802F003639E5 /* Track.m in Sources */,
@@ -362,6 +373,7 @@
 				259B1C9F19CFE115006FE894 /* NowPlayingViewController.m in Sources */,
 				25054CF519CDF86D004BE656 /* PlaylistTableViewController.m in Sources */,
 				25181A2819C18004003639E5 /* AudioManager.m in Sources */,
+				254752DA19D25BD100C0F38D /* ParentTableViewCell.m in Sources */,
 				25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
