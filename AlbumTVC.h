@@ -8,6 +8,7 @@
 
 #import "ParentTableViewController.h"
 #import "StreamingAppUtil.h"
+#import "AlbumCell.h"
 
 @interface AlbumTVC : ParentTableViewController
 

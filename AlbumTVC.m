@@ -30,14 +30,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *simpleTableIdentifier = @"AlbumCell";
+    static NSString *reuse = @"AlbumCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    AlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:reuse];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[AlbumCell alloc] initWithParentTVC:self reuseIdentifier:reuse];
     }
     
+    cell.parentTVC = self;
     cell.textLabel.text = [self.tableItems objectAtIndex:indexPath.row];
     return cell;
 }

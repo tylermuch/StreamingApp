@@ -154,6 +154,70 @@
     [self.playlists addObject:playlist];
 }
 
+- (void)queueAlbum:(NSString *)album artist:(NSString *)artist {
+    NSURL *url = [StreamingAppUtil urlForArtist:artist album:album];
+    
+    [[UIApplication sharedApplication] showNetworkActivityIndicator];
+    
+    dispatch_queue_t jsonFetch = dispatch_queue_create("json fetch", NULL);
+    dispatch_async(jsonFetch, ^{
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+        });
+        
+        NSError *error = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if (error != nil) {
+            NSLog(@"Error parsing JSON.");
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (NSString *song in [jsonArray copy]) {
+                    NSURL *musicURL = [StreamingAppUtil musicUrlForArtist:artist album:album song:song];
+                    [[[AudioManager sharedInstance] secondQueue] addObject:musicURL];
+                }
+                NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
+            });
+        }
+    });
+}
+- (void)playAlbum:(NSString *)album artist:(NSString *)artist {
+    NSURL *url = [StreamingAppUtil urlForArtist:artist album:album];
+    
+    [[UIApplication sharedApplication] showNetworkActivityIndicator];
+    
+    dispatch_queue_t jsonFetch = dispatch_queue_create("json fetch", NULL);
+    dispatch_async(jsonFetch, ^{
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+        });
+        
+        NSError *error = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if (error != nil) {
+            NSLog(@"Error parsing JSON.");
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *first = [[jsonArray copy] firstObject];
+                for (NSString *song in [jsonArray copy]) {
+                    if ([song isEqualToString:first]) {
+                        continue;
+                    }
+                    NSURL *musicURL = [StreamingAppUtil musicUrlForArtist:artist album:album song:song];
+                    [[[AudioManager sharedInstance] secondQueue] addObject:musicURL];
+                }
+                [[AudioManager sharedInstance] playSongWithURI:[StreamingAppUtil musicUrlForArtist:artist album:album song:first]];
+                NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
+            });
+        }
+    });
+}
+
 #pragma mark TrackPlayerDelegate methods
 
 - (void)trackDidFinishPlaying {

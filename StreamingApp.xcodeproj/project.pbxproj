@@ -17,6 +17,7 @@
 		250DF9A619D2981200AFA264 /* PlaylistSongTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9A519D2981200AFA264 /* PlaylistSongTVC.m */; };
 		250DF9A919D2982100AFA264 /* PlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9A819D2982100AFA264 /* PlaylistCell.m */; };
 		250DF9AC19D2982E00AFA264 /* PlaylistSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */; };
+		250DF9B119D3A4B900AFA264 /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9B019D3A4B900AFA264 /* AlbumCell.m */; };
 		25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25181A2319C17E3C003639E5 /* AVFoundation.framework */; };
 		25181A2819C18004003639E5 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2719C18004003639E5 /* AudioManager.m */; };
 		25181A2B19C1802F003639E5 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2A19C1802F003639E5 /* Track.m */; };
@@ -73,6 +74,8 @@
 		250DF9A819D2982100AFA264 /* PlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistCell.m; sourceTree = "<group>"; };
 		250DF9AA19D2982E00AFA264 /* PlaylistSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistSongCell.h; sourceTree = "<group>"; };
 		250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistSongCell.m; sourceTree = "<group>"; };
+		250DF9AF19D3A4B900AFA264 /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
+		250DF9B019D3A4B900AFA264 /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
 		25181A2319C17E3C003639E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		25181A2619C18004003639E5 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		25181A2719C18004003639E5 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				250DF99619D27AA800AFA264 /* ArtistTVC.m */,
 				250DF99819D28A7000AFA264 /* AlbumTVC.h */,
 				250DF99919D28A7000AFA264 /* AlbumTVC.m */,
+				250DF9AF19D3A4B900AFA264 /* AlbumCell.h */,
+				250DF9B019D3A4B900AFA264 /* AlbumCell.m */,
 				250DF99B19D28DF600AFA264 /* SongTVC.h */,
 				250DF99C19D28DF600AFA264 /* SongTVC.m */,
 				250DF99E19D28F0A00AFA264 /* SongCell.h */,
@@ -391,6 +396,7 @@
 				2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */,
 				254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */,
 				25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */,
+				250DF9B119D3A4B900AFA264 /* AlbumCell.m in Sources */,
 				250DF9A619D2981200AFA264 /* PlaylistSongTVC.m in Sources */,
 				25181A2B19C1802F003639E5 /* Track.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
