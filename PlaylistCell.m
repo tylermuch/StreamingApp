@@ -63,7 +63,7 @@
         NSLog(@"Adding Playlist To Queue");
         [[AudioManager sharedInstance] queuePlaylistAtIndexPath:[self.parentTVC.tableView indexPathForCell:self] shuffled:NO];
     }];
-    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete Playlist" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete Playlist" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         NSLog(@"Deleting playlist (asking for confirmation first)");
         [self.parentTVC.parentViewController presentViewController:confirmDeleteController animated:YES completion:nil];
     }];
