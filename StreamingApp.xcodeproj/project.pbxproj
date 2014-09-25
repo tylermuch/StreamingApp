@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502726A19B6D484009FF980 /* StreamingAppUtil.m */; };
 		25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */; };
-		25054CF519CDF86D004BE656 /* PlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */; };
-		25054CF819CDF88D004BE656 /* PlaylistSongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */; };
+		250DF99719D27AA800AFA264 /* ArtistTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF99619D27AA800AFA264 /* ArtistTVC.m */; };
+		250DF99A19D28A7000AFA264 /* AlbumTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF99919D28A7000AFA264 /* AlbumTVC.m */; };
+		250DF99D19D28DF600AFA264 /* SongTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF99C19D28DF600AFA264 /* SongTVC.m */; };
+		250DF9A019D28F0A00AFA264 /* SongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF99F19D28F0A00AFA264 /* SongCell.m */; };
+		250DF9A319D2980400AFA264 /* PlaylistTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9A219D2980400AFA264 /* PlaylistTVC.m */; };
+		250DF9A619D2981200AFA264 /* PlaylistSongTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9A519D2981200AFA264 /* PlaylistSongTVC.m */; };
+		250DF9A919D2982100AFA264 /* PlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9A819D2982100AFA264 /* PlaylistCell.m */; };
+		250DF9AC19D2982E00AFA264 /* PlaylistSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */; };
 		25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25181A2319C17E3C003639E5 /* AVFoundation.framework */; };
 		25181A2819C18004003639E5 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2719C18004003639E5 /* AudioManager.m */; };
 		25181A2B19C1802F003639E5 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2A19C1802F003639E5 /* Track.m */; };
@@ -33,11 +39,7 @@
 		254EC05119B526470026CA47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 254EC04F19B526470026CA47 /* InfoPlist.strings */; };
 		254EC05319B526470026CA47 /* StreamingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EC05219B526470026CA47 /* StreamingAppTests.m */; };
 		259B1C9F19CFE115006FE894 /* NowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */; };
-		25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */; };
 		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
-		25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */; };
-		25D506C119B541C100DDD550 /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506C019B541C100DDD550 /* AlbumTableViewController.m */; };
-		25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506C319B544E600DDD550 /* SongTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +57,22 @@
 		2502726A19B6D484009FF980 /* StreamingAppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingAppUtil.m; sourceTree = "<group>"; };
 		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+NetworkIndicator.h"; path = "../UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
 		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+NetworkIndicator.m"; path = "../UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
-		25054CF319CDF86D004BE656 /* PlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewController.h; sourceTree = "<group>"; };
-		25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewController.m; sourceTree = "<group>"; };
-		25054CF619CDF88D004BE656 /* PlaylistSongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistSongTableViewController.h; sourceTree = "<group>"; };
-		25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistSongTableViewController.m; sourceTree = "<group>"; };
+		250DF99519D27AA800AFA264 /* ArtistTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTVC.h; sourceTree = "<group>"; };
+		250DF99619D27AA800AFA264 /* ArtistTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTVC.m; sourceTree = "<group>"; };
+		250DF99819D28A7000AFA264 /* AlbumTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTVC.h; sourceTree = "<group>"; };
+		250DF99919D28A7000AFA264 /* AlbumTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTVC.m; sourceTree = "<group>"; };
+		250DF99B19D28DF600AFA264 /* SongTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTVC.h; sourceTree = "<group>"; };
+		250DF99C19D28DF600AFA264 /* SongTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTVC.m; sourceTree = "<group>"; };
+		250DF99E19D28F0A00AFA264 /* SongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongCell.h; sourceTree = "<group>"; };
+		250DF99F19D28F0A00AFA264 /* SongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongCell.m; sourceTree = "<group>"; };
+		250DF9A119D2980400AFA264 /* PlaylistTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTVC.h; sourceTree = "<group>"; };
+		250DF9A219D2980400AFA264 /* PlaylistTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTVC.m; sourceTree = "<group>"; };
+		250DF9A419D2981200AFA264 /* PlaylistSongTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistSongTVC.h; sourceTree = "<group>"; };
+		250DF9A519D2981200AFA264 /* PlaylistSongTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistSongTVC.m; sourceTree = "<group>"; };
+		250DF9A719D2982100AFA264 /* PlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistCell.h; sourceTree = "<group>"; };
+		250DF9A819D2982100AFA264 /* PlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistCell.m; sourceTree = "<group>"; };
+		250DF9AA19D2982E00AFA264 /* PlaylistSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistSongCell.h; sourceTree = "<group>"; };
+		250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistSongCell.m; sourceTree = "<group>"; };
 		25181A2319C17E3C003639E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		25181A2619C18004003639E5 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		25181A2719C18004003639E5 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
@@ -93,16 +107,8 @@
 		254EC05219B526470026CA47 /* StreamingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingAppTests.m; sourceTree = "<group>"; };
 		259B1C9D19CFE115006FE894 /* NowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowPlayingViewController.h; sourceTree = "<group>"; };
 		259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowPlayingViewController.m; sourceTree = "<group>"; };
-		25D506AF19B52FED00DDD550 /* NetworkPopulatedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPopulatedTableViewController.h; sourceTree = "<group>"; };
-		25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPopulatedTableViewController.m; sourceTree = "<group>"; };
 		25D506B319B532BA00DDD550 /* JFUrlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUrlUtil.h; sourceTree = "<group>"; };
 		25D506B419B532BA00DDD550 /* JFUrlUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUrlUtil.m; sourceTree = "<group>"; };
-		25D506B619B53C9C00DDD550 /* ArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
-		25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
-		25D506BF19B541C100DDD550 /* AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewController.h; sourceTree = "<group>"; };
-		25D506C019B541C100DDD550 /* AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewController.m; sourceTree = "<group>"; };
-		25D506C219B544E600DDD550 /* SongTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTableViewController.h; sourceTree = "<group>"; };
-		25D506C319B544E600DDD550 /* SongTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250DF9AD19D2984300AFA264 /* Server Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				250DF99519D27AA800AFA264 /* ArtistTVC.h */,
+				250DF99619D27AA800AFA264 /* ArtistTVC.m */,
+				250DF99819D28A7000AFA264 /* AlbumTVC.h */,
+				250DF99919D28A7000AFA264 /* AlbumTVC.m */,
+				250DF99B19D28DF600AFA264 /* SongTVC.h */,
+				250DF99C19D28DF600AFA264 /* SongTVC.m */,
+				250DF99E19D28F0A00AFA264 /* SongCell.h */,
+				250DF99F19D28F0A00AFA264 /* SongCell.m */,
+			);
+			name = "Server Navigation";
+			sourceTree = "<group>";
+		};
+		250DF9AE19D2985D00AFA264 /* Playlist Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				250DF9A119D2980400AFA264 /* PlaylistTVC.h */,
+				250DF9A219D2980400AFA264 /* PlaylistTVC.m */,
+				250DF9A719D2982100AFA264 /* PlaylistCell.h */,
+				250DF9A819D2982100AFA264 /* PlaylistCell.m */,
+				250DF9A419D2981200AFA264 /* PlaylistSongTVC.h */,
+				250DF9A519D2981200AFA264 /* PlaylistSongTVC.m */,
+				250DF9AA19D2982E00AFA264 /* PlaylistSongCell.h */,
+				250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */,
+			);
+			name = "Playlist Navigation";
+			sourceTree = "<group>";
+		};
 		25181A2519C17FF0003639E5 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,24 +266,14 @@
 		25D506B219B52FF600DDD550 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				25D506AF19B52FED00DDD550 /* NetworkPopulatedTableViewController.h */,
-				25D506B019B52FED00DDD550 /* NetworkPopulatedTableViewController.m */,
-				25D506B619B53C9C00DDD550 /* ArtistTableViewController.h */,
-				25D506B719B53C9C00DDD550 /* ArtistTableViewController.m */,
-				25D506BF19B541C100DDD550 /* AlbumTableViewController.h */,
-				25D506C019B541C100DDD550 /* AlbumTableViewController.m */,
-				25D506C219B544E600DDD550 /* SongTableViewController.h */,
-				25D506C319B544E600DDD550 /* SongTableViewController.m */,
-				25054CF319CDF86D004BE656 /* PlaylistTableViewController.h */,
-				25054CF419CDF86D004BE656 /* PlaylistTableViewController.m */,
-				25054CF619CDF88D004BE656 /* PlaylistSongTableViewController.h */,
-				25054CF719CDF88D004BE656 /* PlaylistSongTableViewController.m */,
 				259B1C9D19CFE115006FE894 /* NowPlayingViewController.h */,
 				259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */,
 				254752D819D25BD100C0F38D /* ParentTableViewCell.h */,
 				254752D919D25BD100C0F38D /* ParentTableViewCell.m */,
 				254752DB19D25BE900C0F38D /* ParentTableViewController.h */,
 				254752DC19D25BE900C0F38D /* ParentTableViewController.m */,
+				250DF9AD19D2984300AFA264 /* Server Navigation */,
+				250DF9AE19D2985D00AFA264 /* Playlist Navigation */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -358,23 +384,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */,
-				25D506C419B544E600DDD550 /* SongTableViewController.m in Sources */,
+				250DF99D19D28DF600AFA264 /* SongTVC.m in Sources */,
+				250DF99719D27AA800AFA264 /* ArtistTVC.m in Sources */,
+				250DF9A019D28F0A00AFA264 /* SongCell.m in Sources */,
+				250DF99A19D28A7000AFA264 /* AlbumTVC.m in Sources */,
 				2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */,
 				254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */,
 				25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */,
-				25D506B119B52FED00DDD550 /* NetworkPopulatedTableViewController.m in Sources */,
+				250DF9A619D2981200AFA264 /* PlaylistSongTVC.m in Sources */,
 				25181A2B19C1802F003639E5 /* Track.m in Sources */,
 				254EC03819B526470026CA47 /* AppDelegate.m in Sources */,
-				25054CF819CDF88D004BE656 /* PlaylistSongTableViewController.m in Sources */,
 				254EC03419B526470026CA47 /* main.m in Sources */,
 				25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */,
-				25D506B819B53C9C00DDD550 /* ArtistTableViewController.m in Sources */,
-				25D506C119B541C100DDD550 /* AlbumTableViewController.m in Sources */,
 				259B1C9F19CFE115006FE894 /* NowPlayingViewController.m in Sources */,
-				25054CF519CDF86D004BE656 /* PlaylistTableViewController.m in Sources */,
 				25181A2819C18004003639E5 /* AudioManager.m in Sources */,
 				254752DA19D25BD100C0F38D /* ParentTableViewCell.m in Sources */,
+				250DF9AC19D2982E00AFA264 /* PlaylistSongCell.m in Sources */,
+				250DF9A319D2980400AFA264 /* PlaylistTVC.m in Sources */,
 				25050E7619B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m in Sources */,
+				250DF9A919D2982100AFA264 /* PlaylistCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

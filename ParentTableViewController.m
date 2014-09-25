@@ -25,13 +25,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ParentTableViewCell *cell = (ParentTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell onSelected];
+    id cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[ParentTableViewCell class]]) {
+        ParentTableViewCell *cell = (ParentTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        [cell onSelected];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didHoldRowAtIndexPath:(NSIndexPath *)indexPath {
-    ParentTableViewCell *cell = (ParentTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell onHeld];
+    id cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[ParentTableViewCell class]]) {
+        ParentTableViewCell *cell = (ParentTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        [cell onHeld];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

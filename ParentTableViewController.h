@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ParentTableViewCell.h"
+#import "UIApplication+NetworkIndicator.h"
 
 @interface ParentTableViewController : UITableViewController
 

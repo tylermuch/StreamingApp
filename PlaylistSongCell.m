@@ -1,57 +1,17 @@
 //
-//  SongTableViewController.m
+//  PlaylistSongCell.m
 //  StreamingApp
 //
-//  Created by Tyler Much on 9/1/14.
+//  Created by Tyler Much on 9/24/14.
 //  Copyright (c) 2014 Tyler Much. All rights reserved.
 //
 
-#import "SongTableViewController.h"
+#import "PlaylistSongCell.h"
 
-@implementation SongTableViewController
-{
-    NSString *givenAlbum;
-    NSString *givenArtist;
-    UIAlertAction *cancelAction;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePressHoldFrom:)];
-    [self.tableView addGestureRecognizer:gesture];
-    
-    cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-}
-
-- (void)handlePressHoldFrom:(UILongPressGestureRecognizer *)recognizer {
-    if (recognizer.state == UIGestureRecognizerStateBegan) {
-        CGPoint holdLocation = [recognizer locationInView:self.tableView];
-        NSIndexPath *heldIndexPath = [self.tableView indexPathForRowAtPoint:holdLocation];
-        [self tableView:self.tableView didHoldRowAtIndexPath:heldIndexPath];
-    }
-}
-
-
-- (void)refreshTable {
-    [self populateSongsTableFromNetworkForAlbum:givenAlbum fromArtist:givenArtist];
-}
-
-- (void)setAlbumAndArtistFromDictionary:(NSDictionary *)dict {
-    givenArtist = [dict objectForKey:@"artist"];
-    givenAlbum = [dict objectForKey:@"album"];
-    self.title = givenAlbum;
-    [self refreshTable];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Selected: %@", [tableView cellForRowAtIndexPath:indexPath].textLabel.text);
-    [[AudioManager sharedInstance] playSongWithURI:[StreamingAppUtil musicUrlForArtist:givenArtist album:givenAlbum song:[tableView cellForRowAtIndexPath:indexPath].textLabel.text]];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+@implementation PlaylistSongCell
 
 - (void)alertTextFieldDidChange:(NSNotification *)notification {
-    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    UIAlertController *alertController = (UIAlertController *)self.parentTVC.presentedViewController;
     if (alertController) {
         UITextField *playlistName = alertController.textFields.firstObject;
         UIAlertAction *ok = alertController.actions.lastObject;
@@ -59,9 +19,23 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didHoldRowAtIndexPath:(NSIndexPath *)indexPath {
+
+- (void)onSelected {
+    NSLog(@"selected");
+    if ([self.parentTVC isKindOfClass:[PlaylistSongTVC class]]) {
+        PlaylistSongTVC *tvc = (PlaylistSongTVC *)self.parentTVC;
+        [[AudioManager sharedInstance] playSongWithURI:((Track *)([tvc.givenPlaylist tracks][[tvc.tableView indexPathForCell:self].row])).uri];
+    }
+}
+
+- (void)onHeld {
+    NSLog(@"held");
+    if (![self.parentTVC isKindOfClass:[PlaylistSongTVC class]]) return;
+    NSLog(@"continuing");
+    PlaylistSongTVC *tvc = (PlaylistSongTVC *)self.parentTVC;
+    NSURL *musicURI = [[tvc.givenPlaylist.tracks objectAtIndex:[tvc.tableView indexPathForCell:self].row] uri];
     
-    NSURL *musicURI = [StreamingAppUtil musicUrlForArtist:givenArtist album:givenAlbum song:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     /* Playlist Create AlertAction */
     UIAlertController *playlistCreateController = [UIAlertController alertControllerWithTitle:@"Create Playlist" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -88,15 +62,16 @@
     /* Playlist ActionSheet */
     UIAlertController *playlistController = [UIAlertController alertControllerWithTitle:@"Add To Playlist" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *createPlaylistAction = [UIAlertAction actionWithTitle:@"Create New Playlist" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self.parentViewController presentViewController:playlistCreateController animated:YES completion:nil];
+        [self.parentTVC.parentViewController presentViewController:playlistCreateController animated:YES completion:nil];
     }];
     [playlistController addAction:createPlaylistAction];
     for (TrackPlaylist *playlist in [[AudioManager sharedInstance] playlists]) {
+        if ([playlist isEqual:tvc.givenPlaylist]) {
+            continue;
+        }
         UIAlertAction *playlistAA = [UIAlertAction actionWithTitle:playlist.name style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSLog(@"%@", playlist.name);
             NSLog(@"Adding to playlist: %@.", action.title);
             [playlist addTrackWithURI:musicURI];
-            NSLog(@"%@", playlist.name);
         }];
         [playlistController addAction:playlistAA];
     }
@@ -114,18 +89,16 @@
     UIAlertAction *addToPlaylistAction = [UIAlertAction actionWithTitle:@"Add To Playlist" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"Add to playlist");
         //[self.parentViewController presentViewController:playlistController animated:YES completion:nil];
-        [self.parentViewController presentViewController:playlistController animated:YES completion:^{
+        [self.parentTVC.parentViewController presentViewController:playlistController animated:YES completion:^{
             NSLog(@"complete");
         }];
     }];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[tvc.tableView cellForRowAtIndexPath:[tvc.tableView indexPathForCell:self]].textLabel.text message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertController addAction:playSongAction];
     [alertController addAction:addToQueueAction];
     [alertController addAction:addToPlaylistAction];
     [alertController addAction:cancelAction];
-    [self.parentViewController presentViewController:alertController animated:YES completion:nil];
-    /*UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text  delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Play Song", @"Add to Queue", @"Add to Playlist", nil];
-    [actionSheet showFromTabBar:self.tabBarController.tabBar];*/
+    [self.parentTVC.parentViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

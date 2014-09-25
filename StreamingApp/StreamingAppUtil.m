@@ -9,8 +9,8 @@
 #import "StreamingAppUtil.h"
 #import "JFUrlUtil.h"
 
-//static NSString * const baseURL = @"http://www.tylermuch.com";
-static NSString * const baseURL = @"http://localhost";
+static NSString * const baseURL = @"http://www.tylermuch.com";
+//static NSString * const baseURL = @"http://localhost";
 
 @implementation StreamingAppUtil
 
@@ -64,6 +64,43 @@ static NSString * const baseURL = @"http://localhost";
     s = [s stringByReplacingOccurrencesOfString:@"http://" withString:@""];
     s = [s stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [s componentsSeparatedByString:@"/"];
+}
+
++ (void)populateTVC:(ParentTableViewController *)tvc artist:(NSString *)artist album:(NSString *)album {
+    NSURL *url = [StreamingAppUtil urlForArtist:artist album:album];
+    
+    [[UIApplication sharedApplication] showNetworkActivityIndicator];
+    
+    dispatch_queue_t jsonFetch = dispatch_queue_create("json fetch", NULL);
+    dispatch_async(jsonFetch, ^{
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] hideNetworkActivityIndicator];
+        });
+        
+        NSError *error = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if (error != nil) {
+            NSLog(@"Error parsing JSON.");
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                tvc.tableItems = [jsonArray mutableCopy];
+                [tvc.tableView reloadData];
+                if ([tvc respondsToSelector:@selector(stopRefresh)]) {
+                    [tvc performSelector:@selector(stopRefresh) withObject:nil];
+                }
+            });
+        }
+    });
+}
+
++ (void)assignRefreshControlToTVC:(UITableViewController *)tvc actionSelector:(SEL)selector {
+    UIRefreshControl *rc = [[UIRefreshControl alloc] init];
+    rc.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+    [rc addTarget:tvc action:selector forControlEvents:UIControlEventValueChanged];
+    tvc.refreshControl = rc;
 }
 
 @end

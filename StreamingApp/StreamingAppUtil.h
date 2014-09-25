@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ParentTableViewController.h"
 
 @interface StreamingAppUtil : NSObject
 
@@ -16,5 +17,8 @@
 + (NSString *)artistFromMusicURL:(NSURL *)url;
 + (NSString *)albumFromMusicURL:(NSURL *)url;
 + (NSString *)songFromMusicURL:(NSURL *)url;
+
++ (void)populateTVC:(ParentTableViewController *)tvc artist:(NSString *)artist album:(NSString *)album;
++ (void)assignRefreshControlToTVC:(UITableViewController *)tvc actionSelector:(SEL)selector;
 
 @end
