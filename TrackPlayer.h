@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Track.h"
-#import "TrackPlayer.h"
 #import "TrackPlaylist.h"
 #import "StreamingAppUtil.h"
 #import <AVFoundation/AVFoundation.h>
+#import <Spotify/Spotify.h>
 
 @protocol TrackPlayerDelegate <NSObject>
 
@@ -23,12 +23,15 @@
 
 @property (nonatomic, strong) Track *track;
 @property (nonatomic, strong) NSObject *player;
-@property (nonatomic) BOOL initialized;
 @property (nonatomic) id <TrackPlayerDelegate> delegate;
 
-- (id)initWithURI:(NSURL *)uri delegate:(id <TrackPlayerDelegate>)delegate;
++ (void)trackPlayerWithURI:(NSURL *)uri
+                  delegate:(id<TrackPlayerDelegate>)delegate
+                  callback:(void (^)(NSError *error, TrackPlayer *player))callback;
 - (void)play;
 - (void)pause;
 - (BOOL)isPlaying;
+
++ (id)spotifyStreamingController;
 
 @end

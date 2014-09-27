@@ -36,8 +36,16 @@
 #pragma mark Playback Control
 
 - (void)playSongWithURI:(NSURL *)uri {
-    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
-    [self waitForTrackPlayerInitAndPlay:newPlayer];
+    [TrackPlayer trackPlayerWithURI:uri delegate:self callback:^(NSError *error, TrackPlayer *player) {
+        NSLog(@"[AudioManager playSongWithURI] callback");
+        if (error) {
+            NSLog(@"Error initializing track in [AudioManager playSongWithURI]: %@", error);
+            return;
+        }
+        
+        self.nowPlaying = player;
+        [self.nowPlaying play];
+    }];
 }
 
 - (void)play {
@@ -68,7 +76,6 @@
     } else {
         // There are no songs in the queue. Keep the current TrackPlayer the same
         // instead of replacing it with nil.
-        self.nowPlaying.initialized = NO;
         return;
     }
     
@@ -83,8 +90,20 @@
         [self.previouslyPlayed removeLastObject];
     }
     
-    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
-    [self waitForTrackPlayerInitAndPlay:newPlayer];
+    // Silence the currently playing player. This is really only necessary for the Spotify player.
+    // If it is not silenced here and the next song is AVPlayer, the spotify song will keep playing.
+    [self pause];
+    //TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
+    [TrackPlayer trackPlayerWithURI:uri delegate:self callback:^(NSError *error, TrackPlayer *player) {
+        NSLog(@"[AudioManager next] callback");
+        if (error) {
+            NSLog(@"Error initializing track in [AudioManager next]: %@", error);
+            return;
+        }
+        
+        self.nowPlaying = player;
+        [self.nowPlaying play];
+    }];
     
 }
 
@@ -95,17 +114,17 @@
         [self.previouslyPlayed removeObjectAtIndex:0];
     } else return; // No previously played songs. Do nothing.
     
-    TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
-    [self waitForTrackPlayerInitAndPlay:newPlayer];
-}
-
-- (void)waitForTrackPlayerInitAndPlay:(TrackPlayer *)player {
-    dispatch_queue_t waitForInit = dispatch_queue_create("waitforinit", NULL);
-    dispatch_async(waitForInit, ^{
-        while (!player.initialized);
-        [self setNowPlaying:player];
+    //TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
+    [TrackPlayer trackPlayerWithURI:uri delegate:self callback:^(NSError *error, TrackPlayer *player) {
+        NSLog(@"[AudioManager previous] callback");
+        if (error) {
+            NSLog(@"Error initializing track in [AudioManager previous]: %@", error);
+            return;
+        }
+        
+        self.nowPlaying = player;
         [self.nowPlaying play];
-    });
+    }];
 }
 
 - (void)setNowPlaying:(TrackPlayer *)nowPlaying {
