@@ -44,6 +44,9 @@
 
 - (void)editButtonPressed:(UIBarButtonItem *)button {
     [self.tableView setEditing:![self.tableView isEditing] animated:YES];
+    if ([self.tableView isEditing]) {
+        [button setTitle:@"Done"];
+    } else [button setTitle:@"Edit"];
 }
 
 - (void)alertTextFieldDidChange:(NSNotification *)notification {
@@ -73,7 +76,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Deleting row");
     [self.givenPlaylist.tracks removeObjectAtIndex:indexPath.row];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
