@@ -66,6 +66,16 @@ static NSString * const baseURL = @"http://www.tylermuch.com";
     return [s componentsSeparatedByString:@"/"];
 }
 
++ (BOOL)isSpotifyURI:(NSURL *)uri {
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"spotify:(track|album|artist):(\\d|\\w)+$" options:0 error:nil];
+    return [regex firstMatchInString:[uri absoluteString] options:0 range:NSMakeRange(0, [uri absoluteString].length)] != nil;
+}
+
++ (BOOL)isSpotifyTrackURI:(NSURL *)uri {
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"spotify:track:(\\d|\\w)+$" options:0 error:nil];
+    return [regex firstMatchInString:[uri absoluteString] options:0 range:NSMakeRange(0, [uri absoluteString].length)] != nil;
+}
+
 + (void)populateTVC:(ParentTableViewController *)tvc artist:(NSString *)artist album:(NSString *)album {
     NSURL *url = [StreamingAppUtil urlForArtist:artist album:album];
     

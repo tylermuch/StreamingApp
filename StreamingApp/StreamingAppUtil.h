@@ -18,6 +18,9 @@
 + (NSString *)albumFromMusicURL:(NSURL *)url;
 + (NSString *)songFromMusicURL:(NSURL *)url;
 
++ (BOOL)isSpotifyURI:(NSURL *)uri;
++ (BOOL)isSpotifyTrackURI:(NSURL *)uri;
+
 + (void)populateTVC:(ParentTableViewController *)tvc artist:(NSString *)artist album:(NSString *)album;
 + (void)assignRefreshControlToTVC:(UITableViewController *)tvc actionSelector:(SEL)selector;
 
