@@ -69,12 +69,6 @@
         }
 }
 
-// Called when AVPlayer finishes playing a song
--(void)itemDidFinishPlaying:(NSNotification *) notification {
-    NSLog(@"Finished playing %@", notification.object);
-    [self.delegate trackDidFinishPlaying];
-}
-
 - (void)play {
     NSLog(@"Play");
     if (self.player == nil) {
@@ -136,4 +130,26 @@
     return _controller;
 }
 
+#pragma mark AVPlayer delegate methods
+
+// Called when AVPlayer finishes playing a song
+-(void)itemDidFinishPlaying:(NSNotification *) notification {
+    NSLog(@"Finished playing %@", notification.object);
+    [self.delegate trackDidFinishPlaying];
+}
+
+
+#pragma mark SPTAudioStreamingPlaybackDelegate delegate methods
+
+- (void)audioStreaming:(id)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
+    NSLog(@"audioStreaming:didchangePlaybackStatus: %@", isPlaying ? @"YES" : @"NO");
+    if ([audioStreaming isKindOfClass:[SPTAudioStreamingController class]]) {
+        NSLog(@"is SPTAudioStreamingController");
+        SPTAudioStreamingController *spt = (SPTAudioStreamingController *)audioStreaming;
+        if (spt.currentPlaybackPosition == [[spt.currentTrackMetadata objectForKey:SPTAudioStreamingMetadataTrackDuration] doubleValue]) {
+            NSLog(@"Spotify song ended.");
+            [self.delegate trackDidFinishPlaying];
+        }
+    }
+}
 @end

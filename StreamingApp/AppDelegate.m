@@ -12,8 +12,8 @@
 
 static NSString * const kClientId = @"9d29a3c980c4430c89047224e3d6cfa3";
 static NSString * const kCallbackURL = @"streaming-app://callback";
-static NSString * const kTokenSwapServiceURL = @"http://tylermuch.com:5001/swap"; // token exchange service
-static NSString * const kTokenRefreshServiceURL = @"http://tylermuch.com:5001/refresh"; // token refresh service
+static NSString * const kTokenSwapServiceURL = @"http://www.tylermuch.com:5001/swap"; // token exchange service
+static NSString * const kTokenRefreshServiceURL = @"http://www.tylermuch.com:5001/refresh"; // token refresh service
 static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
 
 @implementation AppDelegate
