@@ -23,7 +23,6 @@
         if ([StreamingAppUtil isSpotifyTrackURI:uri]) {
             SPTAudioStreamingController *trackPlayer = [TrackPlayer spotifyStreamingController];
             trackPlayer.playbackDelegate = newTP; //TODO: Implement delegate methods
-            
             if ([[AudioManager sharedInstance] spotifySession] == nil) {
                 NSLog(@"SPTSession nil.");
             }
@@ -84,14 +83,15 @@
         NSLog(@"Playing: %@", self.track.name);
         
         SPTAudioStreamingController *tmp = (SPTAudioStreamingController *)self.player;
-        
         // currentTrackMetadata is nil if there is no track currently playing.
         if (tmp.currentTrackMetadata == nil) {
+            NSLog(@"Track meta data nil");
             //should I thread this?
             [SPTRequest requestItemAtURI:self.track.uri withSession:nil callback:^(NSError *error, id <SPTTrackProvider> provider) {
                 [tmp playTrackProvider:provider callback:nil]; //TODO: Add callback here?
             }];
         } else {
+            NSLog(@"Set is playing yes");
             [tmp setIsPlaying:YES callback:nil];
         }
         
@@ -122,11 +122,8 @@
 }
 
 + (id)spotifyStreamingController {
-    static dispatch_once_t p = 0;
-    __strong static id _controller = nil;
-    dispatch_once(&p, ^{
-        _controller = [SPTAudioStreamingController new];
-    });
+    __strong static SPTAudioStreamingController *_controller = nil;
+    _controller = [SPTAudioStreamingController new];
     return _controller;
 }
 
