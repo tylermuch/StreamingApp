@@ -17,7 +17,7 @@
                     <connections>
                         <segue destination="L8T-Cc-GH7" kind="relationship" relationship="viewControllers" id="Ce4-R9-4Q1"/>
                         <segue destination="ls8-hj-txu" kind="relationship" relationship="viewControllers" id="SfO-ox-wCs"/>
-                        <segue destination="k1N-ex-nfA" kind="relationship" relationship="viewControllers" id="opU-Qa-3rS"/>
+                        <segue destination="yKV-2p-iRg" kind="relationship" relationship="viewControllers" id="jge-XX-3Fk"/>
                         <segue destination="VNJ-Db-oue" kind="relationship" relationship="viewControllers" id="30T-TZ-RbL"/>
                     </connections>
                 </tabBarController>
@@ -207,23 +207,48 @@
             <point key="canvasLocation" x="541" y="893"/>
         </scene>
         <!--Spotify-->
-        <scene sceneID="Eid-vy-6nb">
+        <scene sceneID="vIX-y3-DYl">
             <objects>
-                <viewController id="k1N-ex-nfA" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rcD-J3-pYZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="1yn-gZ-V5F"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AWb-vM-2lf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Spotify" id="i6m-dV-xVc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="luj-mR-84v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="yKV-2p-iRg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Spotify" id="SV8-ol-Udg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uan-aQ-prs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eWZ-5g-OSA" kind="relationship" relationship="rootViewController" id="Q1O-JL-JYa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZc-li-man" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="1718"/>
+            <point key="canvasLocation" x="275" y="1592"/>
+        </scene>
+        <!--Spotify-->
+        <scene sceneID="inw-K4-o5W">
+            <objects>
+                <tableViewController id="eWZ-5g-OSA" customClass="SpotifySearchTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="E2q-p8-W21">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jie-1f-wMx" customClass="SpotifySearchSongCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jie-1f-wMx" id="QFh-9c-kAC">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eWZ-5g-OSA" id="sxz-gO-IAu"/>
+                            <outlet property="delegate" destination="eWZ-5g-OSA" id="M7W-U0-s7d"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Spotify" id="UwV-4O-EaR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ghd-lx-EQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="1592"/>
         </scene>
         <!--Albums-->
         <scene sceneID="MJS-yU-QWr">
