@@ -43,7 +43,9 @@
 - (void)queuePlaylistAtIndexPath:(NSIndexPath *)indexPath shuffled:(BOOL)shuffled;
 - (void)createPlaylistWithName:(NSString *)name andTrackURI:(NSURL *)uri;
 - (void)queueAlbum:(NSString *)album artist:(NSString *)artist;
+- (void)queueSpotifyAlbum:(NSURL *)uri;
 - (void)playAlbum:(NSString *)album artist:(NSString *)artist;
+- (void)playSpotifyAlbum:(NSURL *)uri;
 - (BOOL)isPlaying;
 
 /* Spotify stuff */

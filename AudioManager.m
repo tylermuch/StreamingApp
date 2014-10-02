@@ -202,6 +202,21 @@
         }
     });
 }
+
+- (void)queueSpotifyAlbum:(NSURL *)uri {
+    [SPTRequest requestItemAtURI:uri withSession:[[AudioManager sharedInstance] spotifySession] callback:^(NSError *error, SPTAlbum *album) {
+        if (error) {
+            NSLog(@"Error getting full Spotify Album: %@", error);
+        }
+        
+        for (SPTPartialTrack *t in album.firstTrackPage.items) {
+            [[[AudioManager sharedInstance] secondQueue] addObject:t.uri];
+        }
+        
+        NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
+    }];
+}
+
 - (void)playAlbum:(NSString *)album artist:(NSString *)artist {
     NSURL *url = [StreamingAppUtil urlForArtist:artist album:album];
     
@@ -235,6 +250,25 @@
             });
         }
     });
+}
+
+- (void)playSpotifyAlbum:(NSURL *)uri {
+    [SPTRequest requestItemAtURI:uri withSession:[[AudioManager sharedInstance] spotifySession] callback:^(NSError *error, SPTAlbum *album) {
+        if (error) {
+            NSLog(@"Error getting full Spotify Album: %@", error);
+        }
+        
+        NSURL *firstTrack = ((SPTPartialTrack *)([album.firstTrackPage.items firstObject])).uri;
+        for (SPTPartialTrack *t in album.firstTrackPage.items) {
+            if ([[t.uri absoluteString] isEqualToString:[firstTrack absoluteString]]) {
+                continue;
+            }
+            [[[AudioManager sharedInstance] secondQueue] addObject:t.uri];
+        }
+        
+        [[AudioManager sharedInstance] playSongWithURI:firstTrack];
+        NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
+    }];
 }
 
 #pragma mark TrackPlayerDelegate methods
