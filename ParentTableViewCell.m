@@ -10,9 +10,9 @@
 
 @implementation ParentTableViewCell
 
-- (id)initWithParentTVC:(UITableViewController *)parent reuseIdentifier:(NSString *)reuseIdentifier{
-    if (self == [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
-        self.parentTVC = parent;
+- (id)initWithParentTVC:(UITableViewController *)parent reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
+        _parentTVC = parent;
     }
     return self;
 }
