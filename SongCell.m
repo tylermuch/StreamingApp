@@ -7,6 +7,7 @@
 //
 
 #import "SongCell.h"
+#import "SpotifyAlbumTVC.h"
 
 @implementation SongCell
 
@@ -20,12 +21,17 @@
 }
 
 - (void)onHeld {
-    if (![self.parentTVC isKindOfClass:[SongTVC class]]) {
-        return;
-    }
-    SongTVC *tvc = (SongTVC *)self.parentTVC;
-    NSURL *musicURI = [StreamingAppUtil musicUrlForArtist:tvc.givenArtist album:tvc.givenAlbum song:self.textLabel.text];
-    
+    NSLog(@"SongCell held");
+    NSURL *musicURI = nil;
+    if ([self.parentTVC isKindOfClass:[SongTVC class]]) {
+        NSLog(@"SongTVC");
+        SongTVC *tvc = (SongTVC *)self.parentTVC;
+        musicURI = [StreamingAppUtil musicUrlForArtist:tvc.givenArtist album:tvc.givenAlbum song:self.textLabel.text];
+    } else if([self.parentTVC isKindOfClass:[SpotifyAlbumTVC class]]) {
+        NSLog(@"SpotifyAlbumTVC");
+        SpotifyAlbumTVC *tvc = (SpotifyAlbumTVC *)self.parentTVC;
+        musicURI = ((SPTPartialTrack *)([tvc.tableItems objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+    } else return;
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     /* Playlist Create AlertAction */
@@ -95,10 +101,17 @@
 - (void)onSelected {
     NSLog(@"Selected: %@", self.textLabel.text);
     NSLog(@"%@", self.parentTVC);
+    
+    NSURL *musicURI = nil;
     if ([self.parentTVC isKindOfClass:[SongTVC class]]) {
         SongTVC *tvc = (SongTVC *)self.parentTVC;
-        [[AudioManager sharedInstance] playSongWithURI:[StreamingAppUtil musicUrlForArtist:tvc.givenArtist album:tvc.givenAlbum song:self.textLabel.text]];
-    }
+        musicURI = [StreamingAppUtil musicUrlForArtist:tvc.givenArtist album:tvc.givenAlbum song:self.textLabel.text];
+    } else if([self.parentTVC isKindOfClass:[SpotifyAlbumTVC class]]) {
+        SpotifyAlbumTVC *tvc = (SpotifyAlbumTVC *)self.parentTVC;
+        musicURI = ((SPTPartialTrack *)([tvc.tableItems objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+    } else return;
+    
+    [[AudioManager sharedInstance] playSongWithURI:musicURI];
 }
 
 @end

@@ -13,6 +13,9 @@
 #import "SpotifySearchArtistCell.h"
 #import "SpotifySearchAlbumCell.h"
 
+NSString * const ARTIST_SELECT_SEQUE = @"SPTSelectArtist";
+NSString * const ALBUM_SELECT_SEQUE = @"SPTSelectAlbum";
+
 @interface SpotifySearchTVC () <UISearchResultsUpdating>
 
 @end
@@ -48,13 +51,19 @@
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+/*- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     //hack to solve problem of cells becoming unresponsive when switching to another ViewController and back
     _searchResultsAlbums = nil;
     _searchResultsArtists = nil;
     _searchResultsSongs = nil;
+    
+    [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView reloadData];
+}*/
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView reloadData];
 }
@@ -214,6 +223,27 @@ sectionForSectionIndexTitle:(NSString *)title
         cell.textLabel.text = t.name;
         return cell;
     } else return nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:ARTIST_SELECT_SEQUE] && [sender isKindOfClass:[SpotifySearchArtistCell class]]) {
+        NSLog(@"Segue to album+song view.");
+        NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.destinationViewController respondsToSelector:@selector(setArtist:)]) {
+                [segue.destinationViewController performSelector:@selector(setArtist:) withObject:[self.searchResultsArtists objectAtIndex:indexPath.row]];
+            }
+        }
+        
+    } else if ([segue.identifier isEqualToString:ALBUM_SELECT_SEQUE] && [sender isKindOfClass:[SpotifySearchAlbumCell class]]) {
+        NSLog(@"Segue to song view.");
+        NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.destinationViewController respondsToSelector:@selector(setAlbum:)]) {
+                [segue.destinationViewController performSelector:@selector(setAlbum:) withObject:[self.searchResultsAlbums objectAtIndex:indexPath.row]];
+            }
+        }
+    }
 }
 
 

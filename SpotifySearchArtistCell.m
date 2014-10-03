@@ -7,6 +7,9 @@
 //
 
 #import "SpotifySearchArtistCell.h"
+#import "SpotifySearchTVC.h"
+
+extern NSString * const ARTIST_SELECT_SEQUE;
 
 @implementation SpotifySearchArtistCell
 
@@ -16,6 +19,7 @@
 
 - (void)onSelected {
     NSLog(@"Artist cell selected");
+    [self.parentTVC performSegueWithIdentifier:ARTIST_SELECT_SEQUE sender:self];
 }
 
 @end
