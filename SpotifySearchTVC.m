@@ -9,9 +9,9 @@
 #import "SpotifySearchTVC.h"
 #import <Spotify/Spotify.h>
 #import "AudioManager.h"
-#import "SpotifySearchAlbumCell.h"
 #import "SongCell.h"
 #import "ArtistCell.h"
+#import "AlbumCell.h"
 
 NSString * const ARTIST_SELECT_SEGUE = @"SPTSelectArtist";
 NSString * const ALBUM_SELECT_SEGUE = @"SPTSelectAlbum";
@@ -201,7 +201,7 @@ sectionForSectionIndexTitle:(NSString *)title
         cell.textLabel.text = t.name;
         return cell;
     } else if (section == 2) {
-        SpotifySearchAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseAlbum];
+        AlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseAlbum];
         
         /*
             I would love for this cell to have subtitle style and display the artist under the album name but 
@@ -213,7 +213,7 @@ sectionForSectionIndexTitle:(NSString *)title
          */
         
         if (cell == nil) {
-            cell = [[SpotifySearchAlbumCell alloc] initWithParentTVC:self reuseIdentifier:reuseAlbum];
+            cell = [[AlbumCell alloc] initWithParentTVC:self reuseIdentifier:reuseAlbum];
         }
         
         SPTPartialAlbum *t;
@@ -235,7 +235,7 @@ sectionForSectionIndexTitle:(NSString *)title
             }
         }
         
-    } else if ([segue.identifier isEqualToString:ALBUM_SELECT_SEGUE] && [sender isKindOfClass:[SpotifySearchAlbumCell class]]) {
+    } else if ([segue.identifier isEqualToString:ALBUM_SELECT_SEGUE] && [sender isKindOfClass:[AlbumCell class]]) {
         NSLog(@"Segue to song view.");
         NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
         if (indexPath) {

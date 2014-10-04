@@ -8,14 +8,20 @@
 
 #import "AlbumCell.h"
 #import "SpotifyArtistTVC.h"
+#import "SpotifySearchTVC.h"
+
+extern NSString * const ALBUM_SELECT_SEGUE;
 
 @implementation AlbumCell
 
 - (void)onSelected {
-    
+    if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]]) {
+        [self.parentTVC performSegueWithIdentifier:ALBUM_SELECT_SEGUE sender:self];
+    }
 }
 
 - (void)onHeld {
+    NSLog(@"asfs");
     NSURL *uri = nil;
     ParentTableViewController *tvc = nil;
 
@@ -24,6 +30,10 @@
     } else if ([self.parentTVC isKindOfClass:[SpotifyArtistTVC class]]) {
         SpotifyArtistTVC *stvc = (SpotifyArtistTVC *)self.parentTVC;
         uri = ((SPTPartialAlbum *)([stvc.albums objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+        tvc = (ParentTableViewController *)self.parentTVC;
+    } else if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]]) {
+        SpotifySearchTVC *stvc = (SpotifySearchTVC *)self.parentTVC;
+        uri = ((SPTPartialAlbum *)([stvc.searchResultsAlbums objectAtIndex:[stvc.tableView indexPathForCell:self].row])).uri;
         tvc = (ParentTableViewController *)self.parentTVC;
     } else return;
     

@@ -28,7 +28,6 @@
 		254752DA19D25BD100C0F38D /* ParentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752D919D25BD100C0F38D /* ParentTableViewCell.m */; };
 		254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752DC19D25BE900C0F38D /* ParentTableViewController.m */; };
 		254EA95719D7E6F900401074 /* SpotifySearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EA95619D7E6F900401074 /* SpotifySearchTVC.m */; };
-		254EA96019D931D300401074 /* SpotifySearchAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EA95F19D931D300401074 /* SpotifySearchAlbumCell.m */; };
 		254EC02819B526470026CA47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02719B526470026CA47 /* Foundation.framework */; };
 		254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02919B526470026CA47 /* CoreGraphics.framework */; };
 		254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254EC02B19B526470026CA47 /* UIKit.framework */; };
@@ -100,8 +99,6 @@
 		254752DC19D25BE900C0F38D /* ParentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentTableViewController.m; sourceTree = "<group>"; };
 		254EA95519D7E6F900401074 /* SpotifySearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifySearchTVC.h; sourceTree = "<group>"; };
 		254EA95619D7E6F900401074 /* SpotifySearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySearchTVC.m; sourceTree = "<group>"; };
-		254EA95E19D931D300401074 /* SpotifySearchAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifySearchAlbumCell.h; sourceTree = "<group>"; };
-		254EA95F19D931D300401074 /* SpotifySearchAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySearchAlbumCell.m; sourceTree = "<group>"; };
 		254EC02419B526470026CA47 /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254EC02719B526470026CA47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		254EC02919B526470026CA47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,8 +202,6 @@
 			children = (
 				254EA95519D7E6F900401074 /* SpotifySearchTVC.h */,
 				254EA95619D7E6F900401074 /* SpotifySearchTVC.m */,
-				254EA95E19D931D300401074 /* SpotifySearchAlbumCell.h */,
-				254EA95F19D931D300401074 /* SpotifySearchAlbumCell.m */,
 				25B40BB819DE7592006E15B8 /* SpotifyArtistTVC.h */,
 				25B40BB919DE7592006E15B8 /* SpotifyArtistTVC.m */,
 				25B40BBB19DE759E006E15B8 /* SpotifyAlbumTVC.h */,
@@ -443,7 +438,6 @@
 				2502726B19B6D484009FF980 /* StreamingAppUtil.m in Sources */,
 				254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */,
 				25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */,
-				254EA96019D931D300401074 /* SpotifySearchAlbumCell.m in Sources */,
 				250DF9B119D3A4B900AFA264 /* AlbumCell.m in Sources */,
 				250DF9A619D2981200AFA264 /* PlaylistSongTVC.m in Sources */,
 				25B40BBD19DE759E006E15B8 /* SpotifyAlbumTVC.m in Sources */,

@@ -238,7 +238,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpotifyAlbumCell" id="TbR-yM-4r9" customClass="SpotifySearchAlbumCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpotifyAlbumCell" id="TbR-yM-4r9" customClass="AlbumCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TbR-yM-4r9" id="gUg-y2-fWJ">
                                     <autoresizingMask key="autoresizingMask"/>
