@@ -172,12 +172,8 @@
 			children = (
 				250DF9A119D2980400AFA264 /* PlaylistTVC.h */,
 				250DF9A219D2980400AFA264 /* PlaylistTVC.m */,
-				250DF9A719D2982100AFA264 /* PlaylistCell.h */,
-				250DF9A819D2982100AFA264 /* PlaylistCell.m */,
 				250DF9A419D2981200AFA264 /* PlaylistSongTVC.h */,
 				250DF9A519D2981200AFA264 /* PlaylistSongTVC.m */,
-				250DF9AA19D2982E00AFA264 /* PlaylistSongCell.h */,
-				250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */,
 			);
 			name = "Playlist Navigation";
 			sourceTree = "<group>";
@@ -297,6 +293,12 @@
 		25507B5419DFBDF600347B64 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				254752D819D25BD100C0F38D /* ParentTableViewCell.h */,
+				254752D919D25BD100C0F38D /* ParentTableViewCell.m */,
+				250DF9A719D2982100AFA264 /* PlaylistCell.h */,
+				250DF9A819D2982100AFA264 /* PlaylistCell.m */,
+				250DF9AA19D2982E00AFA264 /* PlaylistSongCell.h */,
+				250DF9AB19D2982E00AFA264 /* PlaylistSongCell.m */,
 				250DF9AF19D3A4B900AFA264 /* AlbumCell.h */,
 				250DF9B019D3A4B900AFA264 /* AlbumCell.m */,
 				250DF99E19D28F0A00AFA264 /* SongCell.h */,
@@ -312,8 +314,6 @@
 			children = (
 				259B1C9D19CFE115006FE894 /* NowPlayingViewController.h */,
 				259B1C9E19CFE115006FE894 /* NowPlayingViewController.m */,
-				254752D819D25BD100C0F38D /* ParentTableViewCell.h */,
-				254752D919D25BD100C0F38D /* ParentTableViewCell.m */,
 				254752DB19D25BE900C0F38D /* ParentTableViewController.h */,
 				254752DC19D25BE900C0F38D /* ParentTableViewController.m */,
 				254EA95419D7E60800401074 /* Spotify Navigation */,
