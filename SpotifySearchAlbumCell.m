@@ -11,7 +11,7 @@
 #import "AudioManager.h"
 #import "SpotifySearchTVC.h"
 
-extern NSString * const ALBUM_SELECT_SEQUE;
+extern NSString * const ALBUM_SELECT_SEGUE;
 
 @implementation SpotifySearchAlbumCell
 
@@ -43,7 +43,7 @@ extern NSString * const ALBUM_SELECT_SEQUE;
 
 - (void)onSelected {
     NSLog(@"Album cell selected.");
-    [self.parentTVC performSegueWithIdentifier:ALBUM_SELECT_SEQUE sender:self];
+    [self.parentTVC performSegueWithIdentifier:ALBUM_SELECT_SEGUE sender:self];
 }
 
 @end

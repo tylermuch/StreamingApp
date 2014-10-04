@@ -9,13 +9,12 @@
 #import "SpotifySearchTVC.h"
 #import <Spotify/Spotify.h>
 #import "AudioManager.h"
-#import "SpotifySearchSongCell.h"
-#import "SpotifySearchArtistCell.h"
 #import "SpotifySearchAlbumCell.h"
 #import "SongCell.h"
+#import "ArtistCell.h"
 
-NSString * const ARTIST_SELECT_SEQUE = @"SPTSelectArtist";
-NSString * const ALBUM_SELECT_SEQUE = @"SPTSelectAlbum";
+NSString * const ARTIST_SELECT_SEGUE = @"SPTSelectArtist";
+NSString * const ALBUM_SELECT_SEGUE = @"SPTSelectAlbum";
 
 @interface SpotifySearchTVC () <UISearchResultsUpdating>
 
@@ -34,7 +33,6 @@ NSString * const ALBUM_SELECT_SEQUE = @"SPTSelectAlbum";
     searchResultsController.tableView.delegate = self;
     UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePressHoldFrom:)];
     [searchResultsController.tableView addGestureRecognizer:gesture];
-    [searchResultsController.tableView registerClass:[SpotifySearchSongCell class] forCellReuseIdentifier:@"SpotifyCell"];
     
     _searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
     self.searchController.dimsBackgroundDuringPresentation = NO;
@@ -190,10 +188,10 @@ sectionForSectionIndexTitle:(NSString *)title
         cell.detailTextLabel.text = ((SPTPartialArtist *)t.artists[0]).name;
         return cell;
     } else if (section == 1) {
-        SpotifySearchArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseArtist];
+        ArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseArtist];
         
         if (cell == nil) {
-            cell = [[SpotifySearchArtistCell alloc] initWithParentTVC:self reuseIdentifier:reuseArtist];
+            cell = [[ArtistCell alloc] initWithParentTVC:self reuseIdentifier:reuseArtist];
         }
         
         SPTPartialArtist *t;
@@ -228,7 +226,7 @@ sectionForSectionIndexTitle:(NSString *)title
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:ARTIST_SELECT_SEQUE] && [sender isKindOfClass:[SpotifySearchArtistCell class]]) {
+    if ([segue.identifier isEqualToString:ARTIST_SELECT_SEGUE] && [sender isKindOfClass:[ArtistCell class]]) {
         NSLog(@"Segue to album+song view.");
         NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
         if (indexPath) {
@@ -237,7 +235,7 @@ sectionForSectionIndexTitle:(NSString *)title
             }
         }
         
-    } else if ([segue.identifier isEqualToString:ALBUM_SELECT_SEQUE] && [sender isKindOfClass:[SpotifySearchAlbumCell class]]) {
+    } else if ([segue.identifier isEqualToString:ALBUM_SELECT_SEGUE] && [sender isKindOfClass:[SpotifySearchAlbumCell class]]) {
         NSLog(@"Segue to song view.");
         NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
         if (indexPath) {

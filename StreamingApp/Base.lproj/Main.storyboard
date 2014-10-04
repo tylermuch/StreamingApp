@@ -237,9 +237,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jie-1f-wMx" id="QFh-9c-kAC">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="t7l-MZ-O3l" kind="push" identifier="SPTSelectAlbum" id="TUK-pQ-7Ig"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpotifyAlbumCell" id="TbR-yM-4r9" customClass="SpotifySearchAlbumCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -247,14 +244,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Ks9-3X-rvi" kind="push" identifier="SPTSelectArtist" id="zCG-1W-j6c"/>
+                                    <segue destination="t7l-MZ-O3l" kind="push" identifier="SPTSelectAlbum" id="YUm-yi-7U8"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpotifyArtistCell" id="7oH-rv-Md6" customClass="SpotifySearchArtistCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpotifyArtistCell" id="7oH-rv-Md6" customClass="ArtistCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7oH-rv-Md6" id="Anz-K6-Nud">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ks9-3X-rvi" kind="push" identifier="SPTSelectArtist" id="mzx-Gc-cpY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -415,6 +415,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TUK-pQ-7Ig"/>
+        <segue reference="YUm-yi-7U8"/>
     </inferredMetricsTieBreakers>
 </document>
