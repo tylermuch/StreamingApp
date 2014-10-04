@@ -89,6 +89,11 @@ static NSString * const baseURL = @"http://www.tylermuch.com";
             [[UIApplication sharedApplication] hideNetworkActivityIndicator];
         });
         
+        if (!data) {
+            NSLog(@"Received no data back in JSON request.");
+            return;
+        }
+        
         NSError *error = nil;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         

@@ -8,6 +8,7 @@
 
 #import "SongCell.h"
 #import "SpotifyAlbumTVC.h"
+#import "SpotifyArtistTVC.h"
 
 @implementation SongCell
 
@@ -31,6 +32,10 @@
         NSLog(@"SpotifyAlbumTVC");
         SpotifyAlbumTVC *tvc = (SpotifyAlbumTVC *)self.parentTVC;
         musicURI = ((SPTPartialTrack *)([tvc.tableItems objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+    } else if ([self.parentTVC isKindOfClass:[SpotifyArtistTVC class]]) {
+        NSLog(@"SpotifyArtistTVC");
+        SpotifyArtistTVC *tvc = (SpotifyArtistTVC *)self.parentTVC;
+        musicURI = ((SPTPartialTrack *)([tvc.songs objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
     } else return;
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
@@ -109,6 +114,9 @@
     } else if([self.parentTVC isKindOfClass:[SpotifyAlbumTVC class]]) {
         SpotifyAlbumTVC *tvc = (SpotifyAlbumTVC *)self.parentTVC;
         musicURI = ((SPTPartialTrack *)([tvc.tableItems objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+    } else if ([self.parentTVC isKindOfClass:[SpotifyArtistTVC class]]) {
+        SpotifyArtistTVC *tvc = (SpotifyArtistTVC *)self.parentTVC;
+        musicURI = ((SPTPartialTrack *)([tvc.songs objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
     } else return;
     
     [[AudioManager sharedInstance] playSongWithURI:musicURI];

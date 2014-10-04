@@ -12,5 +12,7 @@
 @interface SpotifyArtistTVC : ParentTableViewController
 
 @property (nonatomic, strong, readonly) SPTPartialArtist *givenArtist;
+@property (nonatomic, strong, readonly) NSMutableArray *albums;  // of SPTPartialAlbum
+@property (nonatomic, strong, readonly) NSMutableArray *songs;   // of SPTTrack
 
 @end
