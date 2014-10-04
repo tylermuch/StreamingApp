@@ -12,6 +12,7 @@
 #import "SpotifySearchSongCell.h"
 #import "SpotifySearchArtistCell.h"
 #import "SpotifySearchAlbumCell.h"
+#import "SongCell.h"
 
 NSString * const ARTIST_SELECT_SEQUE = @"SPTSelectArtist";
 NSString * const ALBUM_SELECT_SEQUE = @"SPTSelectAlbum";
@@ -167,17 +168,18 @@ sectionForSectionIndexTitle:(NSString *)title
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *reuseSong = @"SpotifyCell";
+    NSString *reuseSong = @"SpotifySongCell";
     NSString *reuseArtist = @"SpotifyArtistCell";
     NSString *reuseAlbum = @"SpotifyAlbumCell";
     NSInteger index = indexPath.row;
     NSInteger section = indexPath.section;
     
     if (section == 0) {
-        SpotifySearchSongCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseSong];
-            
+        //SpotifySearchSongCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseSong];
+        SongCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseSong];
+        
         if (cell == nil) {
-            cell = [[SpotifySearchSongCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseSong];
+            cell = [[SongCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseSong];
         }
             
         SPTTrack *t;

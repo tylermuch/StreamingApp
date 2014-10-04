@@ -9,11 +9,17 @@
 #import "SongCell.h"
 #import "SpotifyAlbumTVC.h"
 #import "SpotifyArtistTVC.h"
+#import "SpotifySearchTVC.h"
 
 @implementation SongCell
 
 - (void)alertTextFieldDidChange:(NSNotification *)notification {
-    UIAlertController *alertController = (UIAlertController *)self.parentTVC.presentedViewController;
+    UIAlertController *alertController = nil;
+    
+    if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]]) {
+        alertController = (UIAlertController *)self.parentTVC.parentViewController.parentViewController.presentedViewController;
+    } else alertController = (UIAlertController *)self.parentTVC.presentedViewController;
+    
     if (alertController) {
         UITextField *playlistName = alertController.textFields.firstObject;
         UIAlertAction *ok = alertController.actions.lastObject;
@@ -36,6 +42,10 @@
         NSLog(@"SpotifyArtistTVC");
         SpotifyArtistTVC *tvc = (SpotifyArtistTVC *)self.parentTVC;
         musicURI = ((SPTPartialTrack *)([tvc.songs objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+    } else if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]]) {
+        NSLog(@"SpotifySearchTVC");
+        SpotifySearchTVC *tvc = (SpotifySearchTVC *)self.parentTVC;
+        musicURI = ((SPTPartialTrack *)([tvc.searchResultsSongs objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
     } else return;
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
@@ -64,7 +74,9 @@
     /* Playlist ActionSheet */
     UIAlertController *playlistController = [UIAlertController alertControllerWithTitle:@"Add To Playlist" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *createPlaylistAction = [UIAlertAction actionWithTitle:@"Create New Playlist" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self.parentTVC.parentViewController presentViewController:playlistCreateController animated:YES completion:nil];
+        if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]])
+            [self.parentTVC presentViewController:playlistCreateController animated:YES completion:nil];
+        else [self.parentTVC.parentViewController presentViewController:playlistCreateController animated:YES completion:nil];
     }];
     [playlistController addAction:createPlaylistAction];
     for (TrackPlaylist *playlist in [[AudioManager sharedInstance] playlists]) {
@@ -89,17 +101,19 @@
     }];
     UIAlertAction *addToPlaylistAction = [UIAlertAction actionWithTitle:@"Add To Playlist" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"Add to playlist");
-        //[self.parentViewController presentViewController:playlistController animated:YES completion:nil];
-        [self.parentTVC.parentViewController presentViewController:playlistController animated:YES completion:^{
-            NSLog(@"complete");
-        }];
+        if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]])
+            [self.parentTVC presentViewController:playlistController animated:YES completion:nil];
+        else [self.parentTVC.parentViewController presentViewController:playlistController animated:YES completion:nil];
     }];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:self.textLabel.text message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertController addAction:playSongAction];
     [alertController addAction:addToQueueAction];
     [alertController addAction:addToPlaylistAction];
     [alertController addAction:cancelAction];
-    [self.parentTVC.parentViewController presentViewController:alertController animated:YES completion:nil];
+    
+    if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]])
+        [self.parentTVC presentViewController:alertController animated:YES completion:nil];
+    else [self.parentTVC.parentViewController presentViewController:alertController animated:YES completion:nil];
 
 }
 
@@ -117,6 +131,9 @@
     } else if ([self.parentTVC isKindOfClass:[SpotifyArtistTVC class]]) {
         SpotifyArtistTVC *tvc = (SpotifyArtistTVC *)self.parentTVC;
         musicURI = ((SPTPartialTrack *)([tvc.songs objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
+    } else if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]]) {
+        SpotifySearchTVC *tvc = (SpotifySearchTVC *)self.parentTVC;
+        musicURI = ((SPTPartialTrack *)([tvc.searchResultsSongs objectAtIndex:[tvc.tableView indexPathForCell:self].row])).uri;
     } else return;
     
     [[AudioManager sharedInstance] playSongWithURI:musicURI];
