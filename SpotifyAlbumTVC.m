@@ -16,6 +16,7 @@
     [SPTRequest requestItemFromPartialObject:self.givenAlbum withSession:[[AudioManager sharedInstance] spotifySession] callback:^(NSError *error, id object){
         if (error) {
             NSLog(@"Error requesting item from partial object: %@", error);
+            return;
         }
         
         if ([object isKindOfClass:[SPTAlbum class]]) {
