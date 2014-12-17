@@ -9,11 +9,8 @@
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AudioManager.h"
+#include "Config.h"
 
-static NSString * const kClientId = @"9d29a3c980c4430c89047224e3d6cfa3";
-static NSString * const kCallbackURL = @"streaming-app://callback";
-static NSString * const kTokenSwapServiceURL = @"http://www.tylermuch.com:5001/swap"; // token exchange service
-static NSString * const kTokenRefreshServiceURL = @"http://www.tylermuch.com:5001/refresh"; // token refresh service
 static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
 
 @implementation AppDelegate
@@ -40,7 +37,7 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
             [[AudioManager sharedInstance] setSpotifySession:session];
         } else {
             NSLog(@"Session invalid. Refreshing.");
-            if (kTokenRefreshServiceURL == nil || [kTokenRefreshServiceURL isEqualToString:@""]) {
+            if (@kTokenRefreshServiceURL == nil || [@kTokenRefreshServiceURL isEqualToString:@""]) {
                 [self openLoginPage];
             } else {
                 [self renewToken];
@@ -57,10 +54,10 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     NSURL *loginURL;
-    if (kTokenSwapServiceURL == nil || [kTokenSwapServiceURL isEqualToString:@""]) {
-        loginURL = [auth loginURLForClientId:kClientId declaredRedirectURL:[NSURL URLWithString:kCallbackURL] scopes:@[SPTAuthStreamingScope] withResponseType:@"token"];
+    if (@kTokenSwapServiceURL == nil || [@kTokenSwapServiceURL isEqualToString:@""]) {
+        loginURL = [auth loginURLForClientId:@kClientId declaredRedirectURL:[NSURL URLWithString:@kCallbackURL] scopes:@[SPTAuthStreamingScope] withResponseType:@"token"];
     } else {
-        loginURL = [auth loginURLForClientId:kClientId declaredRedirectURL:[NSURL URLWithString:kCallbackURL] scopes:@[SPTAuthStreamingScope]];
+        loginURL = [auth loginURLForClientId:@kClientId declaredRedirectURL:[NSURL URLWithString:@kCallbackURL] scopes:@[SPTAuthStreamingScope]];
     }
     
     double delayInSeconds = 0.1;
@@ -78,7 +75,7 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     NSLog(@"renewing session");
-    [auth renewSession:session withServiceEndpointAtURL:[NSURL URLWithString:kTokenRefreshServiceURL] callback:^(NSError *error, SPTSession *session) {
+    [auth renewSession:session withServiceEndpointAtURL:[NSURL URLWithString:@kTokenRefreshServiceURL] callback:^(NSError *error, SPTSession *session) {
         if (error) {
             NSLog(@"*** Error renewing session: %@", error);
             return;
@@ -114,16 +111,16 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
     };
     
     
-    if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
+    if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:@kCallbackURL]]) {
         NSLog(@"Spotify auth can handle URL");
-        if (kTokenSwapServiceURL == nil || [kTokenSwapServiceURL isEqualToString:@""]) {
+        if (@kTokenSwapServiceURL == nil || [@kTokenSwapServiceURL isEqualToString:@""]) {
             NSLog(@"handle auth callback");
             [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url callback:authCallback];
         } else {
             // If we have a token exchange service, we'll call it and get the token.
             NSLog(@"handle auth callback with token swap");
             [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url
-                                                tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapServiceURL]
+                                                tokenSwapServiceEndpointAtURL:[NSURL URLWithString:@kTokenSwapServiceURL]
                                                                      callback:authCallback];
         }
         return YES;
