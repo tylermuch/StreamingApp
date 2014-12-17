@@ -24,7 +24,6 @@
 		25181A2E19C1803A003639E5 /* TrackPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A2D19C1803A003639E5 /* TrackPlayer.m */; };
 		25181A3119C1804A003639E5 /* TrackPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3019C1804A003639E5 /* TrackPlaylist.m */; };
 		25181A3419C18E92003639E5 /* AudioManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25181A3319C18E92003639E5 /* AudioManagerTests.m */; };
-		2518C5D319D1374600404224 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2518C5D219D1374600404224 /* Spotify.framework */; };
 		254752DA19D25BD100C0F38D /* ParentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752D919D25BD100C0F38D /* ParentTableViewCell.m */; };
 		254752DD19D25BE900C0F38D /* ParentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254752DC19D25BE900C0F38D /* ParentTableViewController.m */; };
 		254EA95719D7E6F900401074 /* SpotifySearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 254EA95619D7E6F900401074 /* SpotifySearchTVC.m */; };
@@ -46,6 +45,7 @@
 		25B40BBA19DE7592006E15B8 /* SpotifyArtistTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B40BB919DE7592006E15B8 /* SpotifyArtistTVC.m */; };
 		25B40BBD19DE759E006E15B8 /* SpotifyAlbumTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B40BBC19DE759E006E15B8 /* SpotifyAlbumTVC.m */; };
 		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
+		25E1A3011A4215570096E038 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E1A3001A4215570096E038 /* Spotify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +92,6 @@
 		25181A3019C1804A003639E5 /* TrackPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPlaylist.m; sourceTree = "<group>"; };
 		25181A3219C18E92003639E5 /* AudioManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManagerTests.h; sourceTree = "<group>"; };
 		25181A3319C18E92003639E5 /* AudioManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManagerTests.m; sourceTree = "<group>"; };
-		2518C5D219D1374600404224 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		254752D819D25BD100C0F38D /* ParentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentTableViewCell.h; sourceTree = "<group>"; };
 		254752D919D25BD100C0F38D /* ParentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentTableViewCell.m; sourceTree = "<group>"; };
 		254752DB19D25BE900C0F38D /* ParentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentTableViewController.h; sourceTree = "<group>"; };
@@ -126,6 +125,8 @@
 		25B40BBC19DE759E006E15B8 /* SpotifyAlbumTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyAlbumTVC.m; sourceTree = "<group>"; };
 		25D506B319B532BA00DDD550 /* JFUrlUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUrlUtil.h; sourceTree = "<group>"; };
 		25D506B419B532BA00DDD550 /* JFUrlUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUrlUtil.m; sourceTree = "<group>"; };
+		25E1A3001A4215570096E038 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		25E1A3021A4216950096E038 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +137,7 @@
 				25181A2419C17E3C003639E5 /* AVFoundation.framework in Frameworks */,
 				254EC02A19B526470026CA47 /* CoreGraphics.framework in Frameworks */,
 				254EC02C19B526470026CA47 /* UIKit.framework in Frameworks */,
-				2518C5D319D1374600404224 /* Spotify.framework in Frameworks */,
+				25E1A3011A4215570096E038 /* Spotify.framework in Frameworks */,
 				254EC02819B526470026CA47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +232,7 @@
 		254EC02619B526470026CA47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2518C5D219D1374600404224 /* Spotify.framework */,
+				25E1A3001A4215570096E038 /* Spotify.framework */,
 				25181A2319C17E3C003639E5 /* AVFoundation.framework */,
 				254EC02719B526470026CA47 /* Foundation.framework */,
 				254EC02919B526470026CA47 /* CoreGraphics.framework */,
@@ -249,6 +250,7 @@
 				254EC03919B526470026CA47 /* Main.storyboard */,
 				254EC03F19B526470026CA47 /* Images.xcassets */,
 				254EC02E19B526470026CA47 /* Supporting Files */,
+				25E1A3021A4216950096E038 /* Config.h */,
 			);
 			path = StreamingApp;
 			sourceTree = "<group>";
@@ -371,7 +373,7 @@
 				ORGANIZATIONNAME = "Tyler Much";
 				TargetAttributes = {
 					254EC02319B526470026CA47 = {
-						DevelopmentTeam = ULZ4FP8P64;
+						DevelopmentTeam = G557HP465V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -587,7 +589,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StreamingApp/StreamingApp-Prefix.pch";
 				INFOPLIST_FILE = "StreamingApp/StreamingApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -610,7 +612,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StreamingApp/StreamingApp-Prefix.pch";
 				INFOPLIST_FILE = "StreamingApp/StreamingApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

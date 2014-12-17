@@ -8,6 +8,7 @@
 
 #import "TrackPlayer.h"
 #import "AudioManager.h"
+#include "Config.h"
 
 @interface TrackPlayer () <SPTAudioStreamingPlaybackDelegate>
 
@@ -123,7 +124,7 @@
 
 + (id)spotifyStreamingController {
     __strong static SPTAudioStreamingController *_controller = nil;
-    _controller = [SPTAudioStreamingController new];
+    _controller = [[SPTAudioStreamingController alloc] initWithClientId:@kClientId];
     return _controller;
 }
 
