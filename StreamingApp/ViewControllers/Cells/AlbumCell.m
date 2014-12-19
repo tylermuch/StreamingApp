@@ -9,19 +9,21 @@
 #import "AlbumCell.h"
 #import "SpotifyArtistTVC.h"
 #import "SpotifySearchTVC.h"
+#include "debug.h"
 
 extern NSString * const ALBUM_SELECT_SEGUE;
 
 @implementation AlbumCell
 
 - (void)onSelected {
+    UI_TRACE("AlbumCell selected")
     if ([self.parentTVC isKindOfClass:[SpotifySearchTVC class]]) {
         [self.parentTVC performSegueWithIdentifier:ALBUM_SELECT_SEGUE sender:self];
     }
 }
 
 - (void)onHeld {
-    NSLog(@"asfs");
+    UI_TRACE("AlbumCell held")
     NSURL *uri = nil;
     ParentTableViewController *tvc = nil;
 

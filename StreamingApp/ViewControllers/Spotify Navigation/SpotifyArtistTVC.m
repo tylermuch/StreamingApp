@@ -128,7 +128,6 @@ sectionForSectionIndexTitle:(NSString *)title
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:ARTIST_SELECT_ALBUM_SEGUE] && [sender isKindOfClass:[AlbumCell class]]) {
-        NSLog(@"Segue to album from artist (SPT).");
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.destinationViewController respondsToSelector:@selector(setAlbum:)]) {

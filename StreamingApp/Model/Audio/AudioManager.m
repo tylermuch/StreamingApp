@@ -7,6 +7,7 @@
 //
 
 #import "AudioManager.h"
+#include "debug.h"
 
 @interface AudioManager ()
 @property (nonatomic, strong) NSMutableArray *previouslyPlayed;
@@ -37,9 +38,8 @@
 
 - (void)playSongWithURI:(NSURL *)uri {
     [TrackPlayer trackPlayerWithURI:uri delegate:self callback:^(NSError *error, TrackPlayer *player) {
-        NSLog(@"[AudioManager playSongWithURI] callback");
         if (error) {
-            NSLog(@"Error initializing track in [AudioManager playSongWithURI]: %@", error);
+            PLAYBACK_TRACE("Error initializing track: %@", error)
             return;
         }
         
@@ -95,9 +95,8 @@
     [self pause];
     //TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
     [TrackPlayer trackPlayerWithURI:uri delegate:self callback:^(NSError *error, TrackPlayer *player) {
-        NSLog(@"[AudioManager next] callback");
         if (error) {
-            NSLog(@"Error initializing track in [AudioManager next]: %@", error);
+            PLAYBACK_TRACE("Error initializing track: %@", error)
             return;
         }
         
@@ -116,9 +115,8 @@
     
     //TrackPlayer *newPlayer = [[TrackPlayer alloc] initWithURI:uri delegate:self];
     [TrackPlayer trackPlayerWithURI:uri delegate:self callback:^(NSError *error, TrackPlayer *player) {
-        NSLog(@"[AudioManager previous] callback");
         if (error) {
-            NSLog(@"Error initializing track in [AudioManager previous]: %@", error);
+            PLAYBACK_TRACE("Error initializing track: %@", error)
             return;
         }
         
@@ -190,14 +188,13 @@
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if (error != nil) {
-            NSLog(@"Error parsing JSON.");
+            SERVER_TRACE("Error parsing JSON.")
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 for (NSString *song in [jsonArray copy]) {
                     NSURL *musicURL = [StreamingAppUtil musicUrlForArtist:artist album:album song:song];
                     [[[AudioManager sharedInstance] secondQueue] addObject:musicURL];
                 }
-                NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
             });
         }
     });
@@ -206,14 +203,13 @@
 - (void)queueSpotifyAlbum:(NSURL *)uri {
     [SPTRequest requestItemAtURI:uri withSession:[[AudioManager sharedInstance] spotifySession] callback:^(NSError *error, SPTAlbum *album) {
         if (error) {
-            NSLog(@"Error getting full Spotify Album: %@", error);
+            SPOTIFY_TRACE("Error getting full spotify album: %@", error)
         }
         
         for (SPTPartialTrack *t in album.firstTrackPage.items) {
             [[[AudioManager sharedInstance] secondQueue] addObject:t.uri];
         }
         
-        NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
     }];
 }
 
@@ -234,7 +230,7 @@
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if (error != nil) {
-            NSLog(@"Error parsing JSON.");
+            SERVER_TRACE("Error parsing JSON")
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString *first = [[jsonArray copy] firstObject];
@@ -246,7 +242,6 @@
                     [[[AudioManager sharedInstance] secondQueue] addObject:musicURL];
                 }
                 [[AudioManager sharedInstance] playSongWithURI:[StreamingAppUtil musicUrlForArtist:artist album:album song:first]];
-                NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
             });
         }
     });
@@ -255,7 +250,7 @@
 - (void)playSpotifyAlbum:(NSURL *)uri {
     [SPTRequest requestItemAtURI:uri withSession:[[AudioManager sharedInstance] spotifySession] callback:^(NSError *error, SPTAlbum *album) {
         if (error) {
-            NSLog(@"Error getting full Spotify Album: %@", error);
+            SPOTIFY_TRACE("Error getting full spotify album: %@", error)
         }
         
         NSURL *firstTrack = ((SPTPartialTrack *)([album.firstTrackPage.items firstObject])).uri;
@@ -267,7 +262,6 @@
         }
         
         [[AudioManager sharedInstance] playSongWithURI:firstTrack];
-        NSLog(@"First Queue: %lu, Second Queue: %lu", [[[AudioManager sharedInstance] firstQueue] count], [[[AudioManager sharedInstance] secondQueue] count]);
     }];
 }
 

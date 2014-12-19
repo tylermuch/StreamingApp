@@ -10,6 +10,7 @@
 #import "SpotifyAlbumTVC.h"
 #import "SpotifyArtistTVC.h"
 #import "SpotifySearchTVC.h"
+#include "debug.h"
 
 @implementation SongCell
 
@@ -28,7 +29,7 @@
 }
 
 - (void)onHeld {
-    NSLog(@"SongCell held");
+    UI_TRACE("SongCell held");
     NSURL *musicURI = nil;
     if ([self.parentTVC isKindOfClass:[SongTVC class]]) {
         NSLog(@"SongTVC");
@@ -118,8 +119,7 @@
 }
 
 - (void)onSelected {
-    NSLog(@"Selected: %@", self.textLabel.text);
-    NSLog(@"%@", self.parentTVC);
+    UI_TRACE("SongCell selected: %@", self.textLabel.text)
     
     NSURL *musicURI = nil;
     if ([self.parentTVC isKindOfClass:[SongTVC class]]) {

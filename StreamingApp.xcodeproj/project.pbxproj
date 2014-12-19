@@ -46,6 +46,7 @@
 		25B40BBD19DE759E006E15B8 /* SpotifyAlbumTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B40BBC19DE759E006E15B8 /* SpotifyAlbumTVC.m */; };
 		25D506B519B532BA00DDD550 /* JFUrlUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D506B419B532BA00DDD550 /* JFUrlUtil.m */; };
 		25E1A3011A4215570096E038 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E1A3001A4215570096E038 /* Spotify.framework */; };
+		25E1A3061A43D61A0096E038 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E1A3051A43D61A0096E038 /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		25E1A3001A4215570096E038 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		25E1A3021A4216950096E038 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		25E1A3041A423C220096E038 /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		25E1A3051A43D61A0096E038 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				254EC03F19B526470026CA47 /* Images.xcassets */,
 				254EC02E19B526470026CA47 /* Supporting Files */,
 				25E1A3021A4216950096E038 /* Config.h */,
+				25E1A3051A43D61A0096E038 /* Launch Screen.xib */,
 			);
 			path = StreamingApp;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				254EC04019B526470026CA47 /* Images.xcassets in Resources */,
+				25E1A3061A43D61A0096E038 /* Launch Screen.xib in Resources */,
 				254EC03219B526470026CA47 /* InfoPlist.strings in Resources */,
 				254EC03B19B526470026CA47 /* Main.storyboard in Resources */,
 			);

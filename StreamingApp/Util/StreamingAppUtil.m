@@ -8,6 +8,7 @@
 
 #import "StreamingAppUtil.h"
 #import "JFUrlUtil.h"
+#include "debug.h"
 
 static NSString * const baseURL = @"http://www.tylermuch.com";
 //static NSString * const baseURL = @"http://localhost";
@@ -90,7 +91,7 @@ static NSString * const baseURL = @"http://www.tylermuch.com";
         });
         
         if (!data) {
-            NSLog(@"Received no data back in JSON request.");
+            SERVER_TRACE("Received no data back in JSON request.")
             return;
         }
         
@@ -98,7 +99,7 @@ static NSString * const baseURL = @"http://www.tylermuch.com";
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if (error != nil) {
-            NSLog(@"Error parsing JSON.");
+            SERVER_TRACE("Error parsing JSON")
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 tvc.tableItems = [jsonArray mutableCopy];

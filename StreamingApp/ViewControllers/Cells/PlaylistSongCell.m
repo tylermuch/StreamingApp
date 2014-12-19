@@ -7,6 +7,7 @@
 //
 
 #import "PlaylistSongCell.h"
+#include "debug.h"
 
 @implementation PlaylistSongCell
 
@@ -21,7 +22,7 @@
 
 
 - (void)onSelected {
-    NSLog(@"selected");
+    UI_TRACE("PlaylistSongCell selected.")
     if ([self.parentTVC isKindOfClass:[PlaylistSongTVC class]]) {
         PlaylistSongTVC *tvc = (PlaylistSongTVC *)self.parentTVC;
         [[AudioManager sharedInstance] playSongWithURI:((Track *)([tvc.givenPlaylist tracks][[tvc.tableView indexPathForCell:self].row])).uri];
@@ -29,9 +30,8 @@
 }
 
 - (void)onHeld {
-    NSLog(@"held");
+    UI_TRACE("PlaylistSongCell held.")
     if (![self.parentTVC isKindOfClass:[PlaylistSongTVC class]]) return;
-    NSLog(@"continuing");
     PlaylistSongTVC *tvc = (PlaylistSongTVC *)self.parentTVC;
     NSURL *musicURI = [[tvc.givenPlaylist.tracks objectAtIndex:[tvc.tableView indexPathForCell:self].row] uri];
     

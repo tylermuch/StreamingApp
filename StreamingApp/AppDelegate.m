@@ -10,13 +10,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioManager.h"
 #include "Config.h"
+#include "debug.h"
 
 static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
 
 @implementation AppDelegate
 
 - (void)storeSessionInUserDefaults:(SPTSession *)session {
-    NSLog(@"Storing session in user defaults");
+    SPOTIFY_TRACE("Storing sessions in user defaults")
     NSData *sessionData = [NSKeyedArchiver archivedDataWithRootObject:session];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:sessionData forKey:kSessionUserDefaultsKey];
@@ -24,19 +25,18 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
 }
 
 - (void)initializeSpotifySession {
-    NSLog(@"Initializing spotify session.");
+    SPOTIFY_TRACE("Initializing spotify session.")
     
     id sessionData = [[NSUserDefaults standardUserDefaults] objectForKey:kSessionUserDefaultsKey];
     SPTSession *session = sessionData ? [NSKeyedUnarchiver unarchiveObjectWithData:sessionData] : nil;
     
     if (session) {
-        NSLog(@"Found session in NSUserDefaults.");
         if ([session isValid]) {
-            NSLog(@"Session is valid.");
+            SPOTIFY_TRACE("Found valid session in NSUserDefaults")
             [self storeSessionInUserDefaults:session];
             [[AudioManager sharedInstance] setSpotifySession:session];
         } else {
-            NSLog(@"Session invalid. Refreshing.");
+            SPOTIFY_TRACE("Found invalid session in NSUserDefaults.")
             if (@kTokenRefreshServiceURL == nil || [@kTokenRefreshServiceURL isEqualToString:@""]) {
                 [self openLoginPage];
             } else {
@@ -44,13 +44,13 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
             }
         }
     } else {
-        NSLog(@"Did not find session in NSUserDefaults.");
+        SPOTIFY_TRACE("Did not find session in NSUserDefaults.")
         [self openLoginPage];
     }
 }
 
 - (void)openLoginPage {
-    NSLog(@"Opening login page.");
+    SPOTIFY_TRACE("Spawning Spotify login page.")
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     NSURL *loginURL;
@@ -63,25 +63,22 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
     double delayInSeconds = 0.1;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
-        NSLog(@"Opening loginURL");
         [[UIApplication sharedApplication] openURL:loginURL];
     });
 }
 
 - (void)renewToken {
-    NSLog(@"renewing token");
+    SPOTIFY_TRACE("Renewing spotify token.")
     id sessionData = [[NSUserDefaults standardUserDefaults] objectForKey:kSessionUserDefaultsKey];
     SPTSession *session = sessionData ? [NSKeyedUnarchiver unarchiveObjectWithData:sessionData] : nil;
     SPTAuth *auth = [SPTAuth defaultInstance];
-    
-    NSLog(@"renewing session");
     [auth renewSession:session withServiceEndpointAtURL:[NSURL URLWithString:@kTokenRefreshServiceURL] callback:^(NSError *error, SPTSession *session) {
         if (error) {
-            NSLog(@"*** Error renewing session: %@", error);
+            SPOTIFY_TRACE("*** Error renewing session: %@", error)
             return;
         }
         [self storeSessionInUserDefaults:session];
-        NSLog(@"setting spotify session");
+        SPOTIFY_TRACE("Setting global spotify session.")
         [[AudioManager sharedInstance] setSpotifySession:session];
     }];
 }
@@ -98,7 +95,6 @@ static NSString * const kSessionUserDefaultsKey = @"AppStreamingSpotifySession";
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    NSLog(@"application:openURL:sourceApplication:annotation:");
     SPTAuthCallback authCallback = ^(NSError *error, SPTSession *session) {
         NSLog(@"auth callback.");
         if (error != nil) {

@@ -7,6 +7,7 @@
 //
 
 #import "NowPlayingViewController.h"
+#include "debug.h"
 
 @implementation NowPlayingViewController
 - (IBAction)playPressed:(id)sender {
@@ -59,7 +60,7 @@
 }
 
 - (void)nowPlayingChanged:(NSNotification *)notification {
-    NSLog(@"Updating now playing labels");
+    UI_TRACE("Updating now playing labels")
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.songNameLabel setText:[[AudioManager sharedInstance] nowPlaying].track.name];
         [self.artistLabel setText:[[AudioManager sharedInstance] nowPlaying].track.artist];

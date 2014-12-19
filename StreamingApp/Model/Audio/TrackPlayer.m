@@ -9,6 +9,7 @@
 #import "TrackPlayer.h"
 #import "AudioManager.h"
 #include "Config.h"
+#include "debug.h"
 
 @interface TrackPlayer () <SPTAudioStreamingPlaybackDelegate>
 
@@ -70,29 +71,25 @@
 }
 
 - (void)play {
-    NSLog(@"Play");
     if (self.player == nil) {
         return;
     }
     
     if ([self.player isKindOfClass:[AVPlayer class]]) {
-        NSLog(@"AVPlayer");
-        NSLog(@"Playing: %@", self.track.name);
+        PLAYBACK_TRACE("Playing with AVPlayer: %@", self.track.name)
         [((AVPlayer *)self.player) play];
     } else if ([self.player isKindOfClass:[SPTAudioStreamingController class]]) {
-        NSLog(@"SPTAudioStreamingController");
-        NSLog(@"Playing: %@", self.track.name);
+        PLAYBACK_TRACE("Playing with SPTAudioStreamingController: %@", self.track.name)
         
         SPTAudioStreamingController *tmp = (SPTAudioStreamingController *)self.player;
         // currentTrackMetadata is nil if there is no track currently playing.
         if (tmp.currentTrackMetadata == nil) {
-            NSLog(@"Track meta data nil");
+            PLAYBACK_TRACE("Track metadata is nil")
             //should I thread this?
             [SPTRequest requestItemAtURI:self.track.uri withSession:nil callback:^(NSError *error, id <SPTTrackProvider> provider) {
                 [tmp playTrackProvider:provider callback:nil]; //TODO: Add callback here?
             }];
         } else {
-            NSLog(@"Set is playing yes");
             [tmp setIsPlaying:YES callback:nil];
         }
         
@@ -107,8 +104,6 @@
     if ([self.player isKindOfClass:[AVPlayer class]]) {
         [((AVPlayer *)self.player) pause];
     } else if ([self.player isKindOfClass:[SPTAudioStreamingController class]]) {
-        NSLog(@"SPTAudioStreamingController");
-        NSLog(@"Playing: %@", self.track.name);
         [((SPTAudioStreamingController *)self.player) setIsPlaying:NO callback:nil];
     } else return;
 }
@@ -132,7 +127,7 @@
 
 // Called when AVPlayer finishes playing a song
 -(void)itemDidFinishPlaying:(NSNotification *) notification {
-    NSLog(@"Finished playing %@", notification.object);
+    PLAYBACK_TRACE("Finished playing: %@", notification.object)
     [self.delegate trackDidFinishPlaying];
 }
 
@@ -140,12 +135,11 @@
 #pragma mark SPTAudioStreamingPlaybackDelegate delegate methods
 
 - (void)audioStreaming:(id)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
-    NSLog(@"audioStreaming:didchangePlaybackStatus: %@", isPlaying ? @"YES" : @"NO");
+    PLAYBACK_TRACE("Changed playback status to %@", isPlaying ? @"YES" : @"NO")
     if ([audioStreaming isKindOfClass:[SPTAudioStreamingController class]]) {
-        NSLog(@"is SPTAudioStreamingController");
         SPTAudioStreamingController *spt = (SPTAudioStreamingController *)audioStreaming;
         if (spt.currentPlaybackPosition == [[spt.currentTrackMetadata objectForKey:SPTAudioStreamingMetadataTrackDuration] doubleValue]) {
-            NSLog(@"Spotify song ended.");
+            PLAYBACK_TRACE("Spotify song ended")
             [self.delegate trackDidFinishPlaying];
         }
     }

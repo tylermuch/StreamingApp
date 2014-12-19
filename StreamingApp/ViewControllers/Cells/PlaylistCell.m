@@ -7,6 +7,7 @@
 //
 
 #import "PlaylistCell.h"
+#include "debug.h"
 
 @implementation PlaylistCell
 
@@ -20,6 +21,7 @@
 }
 
 - (void)onHeld {
+    UI_TRACE("PlaylistCell held.")
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     /* Change Name AlertAction */
@@ -80,7 +82,7 @@
 }
 
 - (void)onSelected {
-    
+    UI_TRACE("PlaylistCell selected")
 }
 
 @end

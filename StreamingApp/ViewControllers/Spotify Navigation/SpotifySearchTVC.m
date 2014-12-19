@@ -12,6 +12,7 @@
 #import "SongCell.h"
 #import "ArtistCell.h"
 #import "AlbumCell.h"
+#include "debug.h"
 
 NSString * const ARTIST_SELECT_SEGUE = @"SPTSelectArtist";
 NSString * const ALBUM_SELECT_SEGUE = @"SPTSelectAlbum";
@@ -155,7 +156,7 @@ sectionForSectionIndexTitle:(NSString *)title
     /* Search for albums */
     [SPTRequest performSearchWithQuery:searchController.searchBar.text queryType:SPTQueryTypeAlbum session:[[AudioManager sharedInstance] spotifySession] callback:^(NSError *error, SPTListPage *results){
         if (error) {
-            NSLog(@"Error searching spotify.");
+            SPOTIFY_TRACE("Error searching spotify")
         }
         
         _searchResultsAlbums = [results.items count] < 10 ? [results.items mutableCopy] : [[results.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 10)]] mutableCopy];
@@ -227,7 +228,6 @@ sectionForSectionIndexTitle:(NSString *)title
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:ARTIST_SELECT_SEGUE] && [sender isKindOfClass:[ArtistCell class]]) {
-        NSLog(@"Segue to album+song view.");
         NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.destinationViewController respondsToSelector:@selector(setArtist:)]) {
@@ -236,7 +236,6 @@ sectionForSectionIndexTitle:(NSString *)title
         }
         
     } else if ([segue.identifier isEqualToString:ALBUM_SELECT_SEGUE] && [sender isKindOfClass:[AlbumCell class]]) {
-        NSLog(@"Segue to song view.");
         NSIndexPath *indexPath = [((ParentTableViewController *)(self.searchController.searchResultsController)).tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.destinationViewController respondsToSelector:@selector(setAlbum:)]) {
