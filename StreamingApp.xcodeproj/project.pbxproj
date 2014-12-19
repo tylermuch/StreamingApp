@@ -61,8 +61,8 @@
 /* Begin PBXFileReference section */
 		2502726919B6D484009FF980 /* StreamingAppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingAppUtil.h; sourceTree = "<group>"; };
 		2502726A19B6D484009FF980 /* StreamingAppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingAppUtil.m; sourceTree = "<group>"; };
-		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+NetworkIndicator.h"; path = "../UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
-		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+NetworkIndicator.m"; path = "../UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
+		25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
+		25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
 		250DF99519D27AA800AFA264 /* ArtistTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTVC.h; sourceTree = "<group>"; };
 		250DF99619D27AA800AFA264 /* ArtistTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTVC.m; sourceTree = "<group>"; };
 		250DF99819D28A7000AFA264 /* AlbumTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTVC.h; sourceTree = "<group>"; };
@@ -127,6 +127,7 @@
 		25D506B419B532BA00DDD550 /* JFUrlUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUrlUtil.m; sourceTree = "<group>"; };
 		25E1A3001A4215570096E038 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		25E1A3021A4216950096E038 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		25E1A3041A423C220096E038 /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +166,7 @@
 				250DF99B19D28DF600AFA264 /* SongTVC.h */,
 				250DF99C19D28DF600AFA264 /* SongTVC.m */,
 			);
-			name = "Server Navigation";
+			path = "Server Navigation";
 			sourceTree = "<group>";
 		};
 		250DF9AE19D2985D00AFA264 /* Playlist Navigation */ = {
@@ -176,7 +177,7 @@
 				250DF9A419D2981200AFA264 /* PlaylistSongTVC.h */,
 				250DF9A519D2981200AFA264 /* PlaylistSongTVC.m */,
 			);
-			name = "Playlist Navigation";
+			path = "Playlist Navigation";
 			sourceTree = "<group>";
 		};
 		25181A2519C17FF0003639E5 /* Audio */ = {
@@ -192,6 +193,7 @@
 				25181A3019C1804A003639E5 /* TrackPlaylist.m */,
 			);
 			name = Audio;
+			path = StreamingApp/Model/Audio;
 			sourceTree = "<group>";
 		};
 		254EA95419D7E60800401074 /* Spotify Navigation */ = {
@@ -204,7 +206,7 @@
 				25B40BBB19DE759E006E15B8 /* SpotifyAlbumTVC.h */,
 				25B40BBC19DE759E006E15B8 /* SpotifyAlbumTVC.m */,
 			);
-			name = "Spotify Navigation";
+			path = "Spotify Navigation";
 			sourceTree = "<group>";
 		};
 		254EC01B19B526470026CA47 = {
@@ -245,6 +247,7 @@
 		254EC02D19B526470026CA47 /* StreamingApp */ = {
 			isa = PBXGroup;
 			children = (
+				25E1A3031A423BC80096E038 /* Util */,
 				254EC03619B526470026CA47 /* AppDelegate.h */,
 				254EC03719B526470026CA47 /* AppDelegate.m */,
 				254EC03919B526470026CA47 /* Main.storyboard */,
@@ -258,12 +261,6 @@
 		254EC02E19B526470026CA47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */,
-				25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */,
-				2502726919B6D484009FF980 /* StreamingAppUtil.h */,
-				2502726A19B6D484009FF980 /* StreamingAppUtil.m */,
-				25D506B319B532BA00DDD550 /* JFUrlUtil.h */,
-				25D506B419B532BA00DDD550 /* JFUrlUtil.m */,
 				254EC02F19B526470026CA47 /* StreamingApp-Info.plist */,
 				254EC03019B526470026CA47 /* InfoPlist.strings */,
 				254EC03319B526470026CA47 /* main.m */,
@@ -309,6 +306,7 @@
 				25507B5619DFBE0800347B64 /* ArtistCell.m */,
 			);
 			name = Cells;
+			path = StreamingApp/ViewControllers/Cells;
 			sourceTree = "<group>";
 		};
 		25D506B219B52FF600DDD550 /* ViewControllers */ = {
@@ -323,6 +321,21 @@
 				250DF9AE19D2985D00AFA264 /* Playlist Navigation */,
 			);
 			name = ViewControllers;
+			path = StreamingApp/ViewControllers;
+			sourceTree = "<group>";
+		};
+		25E1A3031A423BC80096E038 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				25050E7419B62B9B00CF4C7D /* UIApplication+NetworkIndicator.h */,
+				25050E7519B62B9B00CF4C7D /* UIApplication+NetworkIndicator.m */,
+				2502726919B6D484009FF980 /* StreamingAppUtil.h */,
+				2502726A19B6D484009FF980 /* StreamingAppUtil.m */,
+				25D506B319B532BA00DDD550 /* JFUrlUtil.h */,
+				25D506B419B532BA00DDD550 /* JFUrlUtil.m */,
+				25E1A3041A423C220096E038 /* debug.h */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -14,4 +14,10 @@
 #define kTokenSwapServiceURL "http://still-reaches-7394.herokuapp.com/swap"
 #define kTokenRefreshServiceURL "http://still-reaches-7394.herokuapp.com/refresh"
 
+#define ENABLE_TEST_TRACE
+#define ENABLE_SPOTIFY_TRACE
+#define ENABLE_SERVER_TRACE
+#define ENABLE_PLAYBACK_TRACE
+#define ENABLE_UI_TRACE
+
 #endif
