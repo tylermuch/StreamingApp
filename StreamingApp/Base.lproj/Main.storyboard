@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQr-Ow-3Sy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQr-Ow-3Sy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -37,14 +38,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2CN-9F-0YO">
-                                <rect key="frame" x="14" y="448" width="292" height="31"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="VNJ-Db-oue" eventType="valueChanged" id="hkx-KB-wfn"/>
-                                </connections>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGp-Xa-oMI">
-                                <rect key="frame" x="112" y="359" width="97" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGp-Xa-oMI">
+                                <rect key="frame" x="145" y="379" width="30" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -52,8 +47,8 @@
                                     <action selector="playPressed:" destination="VNJ-Db-oue" eventType="touchUpInside" id="jLF-l0-zXR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-r4-twR">
-                                <rect key="frame" x="210" y="359" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-r4-twR">
+                                <rect key="frame" x="216" y="379" width="32" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -61,8 +56,20 @@
                                     <action selector="nextPressed:" destination="VNJ-Db-oue" eventType="touchUpInside" id="wPz-Ab-jIK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68e-Tf-yw3">
-                                <rect key="frame" x="81" y="359" width="31" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKr-IG-Mg8">
+                                <rect key="frame" x="16" y="28" width="288" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InE-T5-5He">
+                                <rect key="frame" x="16" y="90" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68e-Tf-yw3">
+                                <rect key="frame" x="72" y="379" width="31" height="30"/>
                                 <state key="normal" title="Prev">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -70,27 +77,24 @@
                                     <action selector="prevPressed:" destination="VNJ-Db-oue" eventType="touchUpInside" id="nPZ-jz-0YI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKr-IG-Mg8">
-                                <rect key="frame" x="16" y="158" width="288" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InE-T5-5He">
-                                <rect key="frame" x="16" y="228" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C92-qo-Ojp" firstAttribute="top" secondItem="AGp-Xa-oMI" secondAttribute="bottom" constant="110" id="0jS-gn-sQT"/>
+                            <constraint firstItem="68e-Tf-yw3" firstAttribute="leading" secondItem="Smv-g9-8Ow" secondAttribute="leadingMargin" constant="64" id="1Ed-VI-r9R"/>
+                            <constraint firstAttribute="centerX" secondItem="AKr-IG-Mg8" secondAttribute="centerX" id="I5z-g8-f75"/>
+                            <constraint firstAttribute="centerX" secondItem="AGp-Xa-oMI" secondAttribute="centerX" id="M3J-VX-d1N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mar-r4-twR" secondAttribute="trailing" constant="64" id="Mvx-zU-vxC"/>
+                            <constraint firstItem="68e-Tf-yw3" firstAttribute="centerY" secondItem="Mar-r4-twR" secondAttribute="centerY" id="S5n-DV-vcI"/>
+                            <constraint firstAttribute="centerX" secondItem="InE-T5-5He" secondAttribute="centerX" id="Wc4-p2-sAq"/>
+                            <constraint firstItem="68e-Tf-yw3" firstAttribute="centerY" secondItem="AGp-Xa-oMI" secondAttribute="centerY" id="zRS-yJ-iEt"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now Playing" id="LgW-iY-JYA"/>
                     <connections>
                         <outlet property="artistLabel" destination="InE-T5-5He" id="PB7-3v-i1P"/>
                         <outlet property="playButton" destination="AGp-Xa-oMI" id="LJ3-m0-Ago"/>
                         <outlet property="songNameLabel" destination="AKr-IG-Mg8" id="5X5-bR-Kwl"/>
-                        <outlet property="timeSlider" destination="2CN-9F-0YO" id="vgB-v1-0Mf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXG-zP-0D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
